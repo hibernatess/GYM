@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.ssm</groupId>
+  <artifactId>GYM</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>war</packaging>
+
+  <name>GYM Maven Webapp</name>
+  <!-- FIXME change it to the project's website -->
+  <url>http://www.example.com</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+    <maven.compiler.plugin.version>3.7.0</maven.compiler.plugin.version>
+    <!--添加jar包依赖-->
+    <!--1.spring 5.0.2.RELEASE相关-->
+    <spring.version>5.1.3.RELEASE</spring.version>
+    <!--2.mybatis相关-->
+    <mybatis.version>3.4.6</mybatis.version>
+    <tk.mybatis.vsersion>3.3.9</tk.mybatis.vsersion>
+    <!--mysql-->
+    <mysql.version>5.1.47</mysql.version>
+    <!--pagehelper分页jar依赖-->
+    <pagehelper.version>5.1.2</pagehelper.version>
+    <!--mybatis与spring集成jar依赖-->
+    <mybatis.spring.version>1.3.1</mybatis.spring.version>
+    <!--&lt;!&ndash;3.dbcp2连接池相关 druid&ndash;&gt;-->
+    <!--<commons.dbcp2.version>2.1.1</commons.dbcp2.version>-->
+    <!--<commons.pool2.version>2.4.3</commons.pool2.version>-->
+    <!--4.log日志相关-->
+    <log4j2.version>2.9.1</log4j2.version>
+    <!--5.其他-->
+    <json.version>2.9.5</json.version>
+    <junit.version>4.12</junit.version>
+    <servlet.version>4.0.0</servlet.version>
+    <lombok.version>1.18.2</lombok.version>
+    <upload.version>1.3.1</upload.version>
+    <mybatis-generator-core.vsersion>1.3.5</mybatis-generator-core.vsersion>
+  </properties>
+
+  <dependencies>
+    <!-- ********************** spring依赖 ********************** -->
+    <!--1)spring核心依赖-->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-core</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+    <!--spring ioc依赖 -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-beans</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+    <!--spring 扩展依赖 -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-context</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+    <!--2)spring dao层依赖-->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-orm</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-tx</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+    <!--3)aop相关依赖 -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-aspects</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+    <!--4)spring web相关依赖 -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-web</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+    <!--5) spring test相关依赖 -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-test</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+    <!--6)springMVC-->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-webmvc</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+
+    <!--2.mybatis相关-->
+    <dependency>
+      <groupId>org.mybatis</groupId>
+      <artifactId>mybatis</artifactId>
+      <version>${mybatis.version}</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/tk.mybatis/mapper -->
+    <dependency>
+      <groupId>tk.mybatis</groupId>
+      <artifactId>mapper</artifactId>
+      <version>${tk.mybatis.vsersion}</version>
+    </dependency>
+    <!--mysql-->
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>${mysql.version}</version>
+    </dependency>
+    <!--pagehelper分页插件jar包依赖-->
+    <dependency>
+      <groupId>com.github.pagehelper</groupId>
+      <artifactId>pagehelper</artifactId>
+      <version>${pagehelper.version}</version>
+    </dependency>
+    <!--mybatis与spring集成jar包依赖-->
+    <dependency>
+      <groupId>org.mybatis</groupId>
+      <artifactId>mybatis-spring</artifactId>
+      <version>${mybatis.spring.version}</version>
+    </dependency>
+    <!-- 数据库连接池https://mvnrepository.com/artifact/com.alibaba/druid -->
+    <dependency>
+      <groupId>com.alibaba</groupId>
+      <artifactId>druid</artifactId>
+      <version>1.1.10</version>
+    </dependency>
+    <!--4.log日志相关依赖-->
+    <!--核心log4j2jar包-->
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-core</artifactId>
+      <version>${log4j2.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-api</artifactId>
+      <version>${log4j2.version}</version>
+    </dependency>
+    <!--web工程需要包含log4j-web，非web工程不需要-->
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-web</artifactId>
+      <version>${log4j2.version}</version>
+    </dependency>
+
+    <!--json-->
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>${json.version}</version>
+    </dependency>
+    <!--5.其他-->
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>${junit.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>javax.servlet-api</artifactId>
+      <version>${servlet.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>${lombok.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <!-- 文件上传 -->
+    <dependency>
+      <groupId>commons-fileupload</groupId>
+      <artifactId>commons-fileupload</artifactId>
+      <version>${upload.version}</version>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <finalName>GYM</finalName>
+    <resources>
+      <!--解决mybatis-generator-maven-plugin运行时没有将XxxMapper.xml文件放入target文件夹的问题-->
+      <resource>
+        <directory>src/main/java</directory>
+        <includes>
+          <include>**/*.xml</include>
+        </includes>
+      </resource>
+      <!--解决mybatis-generator-maven-plugin运行时没有将jdbc.properites文件放入target文件夹的问题-->
+      <resource>
+        <directory>src/main/resources</directory>
+        <includes>
+          <include>db.properties</include>
+          <include>*.xml</include>
+        </includes>
+      </resource>
+    </resources>
+    <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>${maven.compiler.plugin.version}</version>
+          <configuration>
+            <source>${maven.compiler.source}</source>
+            <target>${maven.compiler.target}</target>
+            <encoding>${project.build.sourceEncoding}</encoding>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.mybatis.generator</groupId>
+          <artifactId>mybatis-generator-maven-plugin</artifactId>
+          <version>1.3.2</version>
+          <dependencies>
+            <!--使用Mybatis-generator插件不能使用太高版本的mysql驱动 -->
+            <dependency>
+              <groupId>mysql</groupId>
+              <artifactId>mysql-connector-java</artifactId>
+              <version>${mysql.version}</version>
+            </dependency>
+
+            <dependency>
+              <groupId>tk.mybatis</groupId>
+              <artifactId>mapper</artifactId>
+              <version>${tk.mybatis.vsersion}</version>
+            </dependency>
+            <dependency>
+              <groupId>org.mybatis.generator</groupId>
+              <artifactId>mybatis-generator-core</artifactId>
+              <version>${mybatis-generator-core.vsersion}</version>
+            </dependency>
+
+          </dependencies>
+          <configuration>
+            <overwrite>true</overwrite>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+</project>
