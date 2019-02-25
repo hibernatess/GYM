@@ -162,6 +162,15 @@
       <artifactId>jackson-databind</artifactId>
       <version>${json.version}</version>
     </dependency>
+    <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>1.18.2</version>
+      <scope>provided</scope>
+    </dependency>
+
+
     <!--5.其他-->
     <dependency>
       <groupId>junit</groupId>
