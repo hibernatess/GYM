@@ -9,6 +9,7 @@ import com.gym.ssm.mapper.CurriculumMapper;
 import com.gym.ssm.service.CurriculumBiz;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -25,7 +26,8 @@ import javax.servlet.http.HttpServletRequest;
  * @author: hw
  * @create: 2019-02-25 20:40
  **/
-@RestController
+@Controller
+@RequestMapping("/ss")
 public class CurriculumController {
 
     @Autowired
@@ -33,6 +35,8 @@ public class CurriculumController {
 
     @Autowired
     CurriculumMapper curriculumMapper;
+
+
 
     /**
      * @Description: 查询课程
