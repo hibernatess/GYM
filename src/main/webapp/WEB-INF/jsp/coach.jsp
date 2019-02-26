@@ -25,7 +25,7 @@
                 <tr>
                     <td>教练姓名</td>
                     <td>
-                        <input type="text" class="layui-input" name="jnames" id="jnames" placeholder="请输入客户名称" autocomplete="off">
+                        <input type="text" class="layui-input" name="jnames" id="jnames" placeholder="请输入教练姓名" autocomplete="off">
                     </td>
                     <td>
                         <button class="layui-btn" data-type="reload" id="btn">搜索</button>

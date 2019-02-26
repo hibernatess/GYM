@@ -14,7 +14,7 @@ public class SqlCoach {
                 INNER_JOIN(" curriculum r on c.cid=r.cid ");
                 INNER_JOIN(" dictionaries s on c.sid=s.sid ");
                 if(!StringUtils.isEmpty(coach.getJname())){
-                    WHERE(" cu.cname "+" like '%"+coach.getJname()+"%' ");
+                    WHERE(" c.jname "+" like '%"+coach.getJname()+"%' ");
                 }
             }
         }.toString();

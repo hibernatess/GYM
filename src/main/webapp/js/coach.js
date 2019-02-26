@@ -10,9 +10,9 @@ layui.use(['form','table','layer'] ,function () {
         , url: '../coach/getcoach'
         , title: '销售机会管理表'
         , cols: [[
-            {field: 'jid', title: '编号', width: '6%', edit: 'text'}
-            , {field: 'jname', title: '教练姓名', width: '10%', edit: 'text'}
-            , {field: 'jsex', title: '性别', width: '18%', edit: 'text'}
+            {field: 'jid', title: '编号', width: '6%'}
+            , {field: 'jname', title: '教练姓名', width: '10%'}
+            , {field: 'jsex', title: '性别', width: '18%'}
             , {field: 'svalues', title: '教练类型', width: '10%'}
             , {field: 'jage', title: '年龄', width: '18%'}
             , {field: 'jaddress', title: '地址', width: '10%'}
