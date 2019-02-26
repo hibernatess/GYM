@@ -19,7 +19,7 @@
     <div class="layui-form-item">
         <label class="layui-form-label">课程名</label>
         <div class="layui-input-inline">
-            <input type="text" id='usr_name' name="cname"
+            <input type="text" id='cnames' name="cname"
                    lay-verify="required" placeholder="请输入课程名" autocomplete="true"
                    class="layui-input">
         </div>
@@ -48,26 +48,32 @@
             <br>
             <label class="layui-form-label">课程时间</label>
             <div class="layui-input-block">
-                <input type="password" class="layui-input"  id="cattend"
+                <input type="text" class="layui-input"  id="cattend"
                        name=cattend placeholder=" - "><br>
             </div>
 
             <label class="layui-form-label">选择教练</label>
             <div class="layui-input-block">
-                <select  class="layui-select" id="usr_role_ids" name=jid>
+                <select  class="layui-select" id="jid" name=jid>
                 </select>
             </div>
-
+            <br>
             <label class="layui-form-label"> 是否收费</label>
             <div class="layui-input-block">
-                <input type="password" class="layui-input"  id="sid"
-                       name=usr_password><br>
+                <select class="layui-select" id="sid" name="sid">
+                    <option value="1">
+                        是
+                    </option>
+                    <option value="0">
+                        否
+                    </option>
+                </select>
             </div>
-
+            <br>
             <label class="layui-form-label"> 课程价格</label>
             <div class="layui-input-block">
                 <input type="password" class="layui-input"  id="cprice"
-                       name=usr_password><br>
+                       name=cprice><br>
             </div>
         </div>
     </form>
@@ -75,7 +81,8 @@
 
 <!--按钮菜单-->
 <script type="text/html" id="barDemo">
-
+    <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
 </script>
 <script>
     layui.use('laydate', function() {

@@ -52,12 +52,8 @@ public class CurriculumController {
         bean.setPageBean(request);
         Page<Object> objects = PageHelper.startPage(bean.getPage(), bean.getRows());
         //如果对象不为空则查询,否则直接查询全部
-        List list = null;
-        if (!StringUtils.isEmpty(curriculum.getCname())) {
-            list = biz.GetCurriculum(curriculum);
-        } else {
-            list = curriculumMapper.selectAll();
-        }
+        List list = biz.GetCurriculum(curriculum);
+
         PageInfo pageInfo = new PageInfo(list);
         Map<String, Object> map = new HashMap<>();
         map.put("code", 0);
