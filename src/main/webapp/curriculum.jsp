@@ -43,18 +43,19 @@
         <div class="layui-form-item">
             <label class="layui-form-label">课程名称</label>
             <div class="layui-input-block">
-                <input type="text" class="layui-input layui-disabled text_add"  id="cname" name=cname disabled="-">
+                <input type="text" class="layui-input" id="cname" name=cname
+                       >
             </div>
             <br>
             <label class="layui-form-label">课程时间</label>
             <div class="layui-input-block">
-                <input type="text" class="layui-input"  id="cattend"
+                <input type="text" class="layui-input" id="cattend"
                        name=cattend placeholder=" - "><br>
             </div>
 
             <label class="layui-form-label">选择教练</label>
             <div class="layui-input-block">
-                <select  class="layui-select" id="jid" name=jid>
+                <select class="layui-select" id="jid" name=jid>
                 </select>
             </div>
             <br>
@@ -72,7 +73,7 @@
             <br>
             <label class="layui-form-label"> 课程价格</label>
             <div class="layui-input-block">
-                <input type="password" class="layui-input"  id="cprice"
+                <input type="text" class="layui-input" id="cprice"
                        name=cprice><br>
             </div>
         </div>
@@ -85,13 +86,13 @@
     <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
 </script>
 <script>
-    layui.use('laydate', function() {
+    layui.use('laydate', function () {
         var laydate = layui.laydate;
         //时间范围
         laydate.render({
             elem: '#cattend'
-            ,type: 'time'
-            ,range: true
+            , type: 'time'
+            , range: true
         });
     });
 </script>

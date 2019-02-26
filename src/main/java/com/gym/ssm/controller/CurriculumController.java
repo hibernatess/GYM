@@ -70,7 +70,7 @@ public class CurriculumController {
      * @Author: hw
      * @Date: 2019/2/25
      */
-    @PostMapping("/post")
+    @RequestMapping("/post")
     @ResponseBody
     public boolean PostCurriculum(Curriculum curriculum) {
         if (biz.PostCurriculum(curriculum) > 0) {
@@ -102,8 +102,8 @@ public class CurriculumController {
      * @Author: hw
      * @Date: 2019/2/25
      */
-    @RequestMapping("/put")
     @ResponseBody
+    @RequestMapping("/put")
     public boolean PutCurriculum(Curriculum curriculum) {
         if (biz.PutCurriculum(curriculum) > 0) {
             return true;
