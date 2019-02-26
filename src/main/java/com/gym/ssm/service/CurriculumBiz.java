@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @program: GYM
@@ -46,5 +47,5 @@ public interface CurriculumBiz {
      * @Author: hw
      * @Date: 2019/2/25
      */
-    public List<Curriculum> GetCurriculum(Curriculum curriculum);
+    public List<Map<String,Object>> GetCurriculum(Curriculum curriculum);
 }

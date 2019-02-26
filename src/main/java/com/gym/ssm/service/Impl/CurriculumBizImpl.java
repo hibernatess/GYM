@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @program: GYM
@@ -56,7 +57,7 @@ public class CurriculumBizImpl implements CurriculumBiz {
      */
     @Override
     public int PutCurriculum(Curriculum curriculum) {
-        return curriculumMapper.updateByPrimaryKey(curriculum);
+        return curriculumMapper.updateByPrimaryKeySelective(curriculum);
     }
 
     /**
@@ -67,7 +68,7 @@ public class CurriculumBizImpl implements CurriculumBiz {
      * @Date: 2019/2/25
      */
     @Override
-    public List<Curriculum> GetCurriculum(Curriculum curriculum) {
-        return curriculumMapper.select(curriculum);
+    public List<Map<String,Object>> GetCurriculum(Curriculum curriculum) {
+        return curriculumMapper.GetCurriculum(curriculum);
     }
 }
