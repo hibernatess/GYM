@@ -5,6 +5,7 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.gym.ssm.base.PageBean;
 import com.gym.ssm.entity.Curriculum;
+import com.gym.ssm.entity.Dictionaries;
 import com.gym.ssm.mapper.CurriculumMapper;
 import com.gym.ssm.service.CurriculumBiz;
 
@@ -38,13 +39,6 @@ public class CurriculumController {
     @Autowired
     CurriculumMapper curriculumMapper;
 
-    @RequestMapping("/getcurr")
-    @ResponseBody
-    public List<Curriculum> get(){
-        return curriculumMapper.selectAll();
-    }
-
-
     /**
      * @Description: 查询课程
      * @Param: [curriculum]
@@ -69,6 +63,7 @@ public class CurriculumController {
         map.put("data", pageInfo.getList());
         return map;
     }
+
 
     /**
      * @Description: 添加课程

@@ -40,7 +40,7 @@ public class DictionariesBizImpl implements DictionariesBiz {
     }
 
     @Override
-    public List<Map<String, Object>> GetDictionaries(Dictionaries dictionaries) {
+    public List<Dictionaries> GetDictionaries(Dictionaries dictionaries) {
 
         return dictionariesMapper.GetDictionaries(dictionaries);
     }

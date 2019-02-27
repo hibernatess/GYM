@@ -12,9 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * @ClassName DictionariesController
@@ -31,7 +29,7 @@ public class DictionariesController {
     /**
      * @Description: 查询基础数据
      * @Param: [dictionaries, request]
-     * @return: java.util.Map<java.lang.String                                                                                                                               ,                                                                                                                               java.lang.Object>
+     * @return: java.util.Map<java.lang.String                                                                                                                                                                                                                                                               ,                                                                                                                                                                                                                                                               java.lang.Object>
      * @Author: ywj
      * @Date: 2019/2/26 0026
      */
@@ -41,7 +39,7 @@ public class DictionariesController {
         PageBean bean = new PageBean();
         bean.setPageBean(request);
         PageHelper.startPage(bean.getPage(), bean.getRows());
-        List<Map<String, Object>> maps = dbiz.GetDictionaries(dictionaries);
+        List<Dictionaries> maps = dbiz.GetDictionaries(dictionaries);
         PageInfo pageInfo = new PageInfo(maps);
         Map<String, Object> map = new HashMap<>();
         map.put("code", 0);
@@ -54,17 +52,17 @@ public class DictionariesController {
     /**
      * @Description: 给猴子的接口
      * @Param: [dictionaries, request]
-     * @return: java.util.List<java.util.Map   <   java.lang.String   ,   java.lang.Object>>
+     * @return: java.util.List<java.util.Map       <       java.lang.String       ,       java.lang.Object>>
      * @Author: ywj
      * @Date: 2019/2/27 0027
      */
     @RequestMapping("/getdict")
     @ResponseBody
-    public List<Map<String, Object>> getDictionaries(Dictionaries dictionaries, HttpServletRequest request) {
-
-        List<Map<String, Object>> maps = dbiz.GetDictionaries(dictionaries);
-
-        return maps;
+    public Set<Dictionaries> getDictionaries(Dictionaries dictionaries, HttpServletRequest request) {
+        List<Dictionaries> maps = dbiz.GetDictionaries(dictionaries);
+        Set<Dictionaries> set = new HashSet<>();
+        maps.forEach(s->set.add(s));
+        return set;
     }
 
     /**

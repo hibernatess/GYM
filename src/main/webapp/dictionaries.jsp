@@ -11,10 +11,11 @@
 <table class="layui-table" lay-skin="nob">
     <tr>
         <td><label class="layui-form-label">类别</label></td>
-        <td> <input type="text" id='UserName' name="UserName"
-                    lay-verify="required" placeholder="请输入操作者姓名" autocomplete="true"
-                    class="layui-input"></td>
-        <td><label class="layui-form-label">时间范围</label></td>
+        <td>
+            <select class="layui-select" id="sname" name=sname>
+            </select>
+        </td>
+        <td><label class="layui-form-label">数据值</label></td>
         <td> <input type="text" id='svalues' name="svalues"
                     lay-verify="required" placeholder="请输入数据值" autocomplete="true"
                     class="layui-input"></td>

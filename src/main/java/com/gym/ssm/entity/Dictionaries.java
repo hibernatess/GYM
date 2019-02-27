@@ -1,6 +1,9 @@
 package com.gym.ssm.entity;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
 
 @Table(name = "dictionaries")
 public class Dictionaries {
@@ -143,5 +146,19 @@ public class Dictionaries {
      */
     public void setSflag(Integer sflag) {
         this.sflag = sflag;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Dictionaries that = (Dictionaries) o;
+        return Objects.equals(sname, that.sname);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(sname);
     }
 }

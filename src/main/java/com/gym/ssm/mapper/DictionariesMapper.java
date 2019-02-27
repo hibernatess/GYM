@@ -10,5 +10,5 @@ import java.util.Map;
 
 public interface DictionariesMapper extends Mapper<Dictionaries> {
      @SelectProvider(type = SqlDictionaries.class ,method = "SelectDictionaries")
-    public List<Map<String,Object>>   GetDictionaries(Dictionaries dictionaries);
+    public List<Dictionaries>   GetDictionaries(Dictionaries dictionaries);
 }

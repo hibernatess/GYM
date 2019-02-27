@@ -49,6 +49,6 @@ public interface DictionariesBiz {
         * @Author: ywj
         * @Date: 2019/2/26 0026
         */
-    public List<Map<String,Object>> GetDictionaries(Dictionaries dictionaries);
+    public List<Dictionaries> GetDictionaries(Dictionaries dictionaries);
 
 }
