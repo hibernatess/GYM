@@ -38,9 +38,16 @@ public class CurriculumController {
     @Autowired
     CurriculumMapper curriculumMapper;
 
+    /**
+     * @Description: 供前端其他模块调用查询数据
+     * @Param: []
+     * @return: java.util.List<com.gym.ssm.entity.Curriculum>
+     * @Author: hw
+     * @Date: 2019/2/27
+     */
     @RequestMapping("/getcurr")
     @ResponseBody
-    public List<Curriculum> get(){
+    public List<Curriculum> get() {
         return curriculumMapper.selectAll();
     }
 
