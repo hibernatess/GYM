@@ -9,9 +9,9 @@
 <html>
 <head>
     <title>Title</title>
-    <link rel="stylesheet" href="../layui/css/layui.css" media="all">
-    <script type="text/javascript" src="../layui/layui.js"></script>
-    <script type="text/javascript" src="../js/jquery-3.3.1.js"></script>
+    <link rel="stylesheet" href="../../layui/css/layui.css" media="all">
+    <script type="text/javascript" src="../../layui/layui.js"></script>
+    <script type="text/javascript" src="../../js/jquery-3.3.1.js"></script>
 </head>
 <body>
 <!--搜索维度-->
@@ -96,6 +96,6 @@
         });
     });
 </script>
-<script src="../js/curriculum.js"></script>
+<script src="../../js/curriculum.js"></script>
 </body>
 </html>
