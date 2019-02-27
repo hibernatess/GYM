@@ -38,6 +38,13 @@ public class CurriculumController {
     @Autowired
     CurriculumMapper curriculumMapper;
 
+    @RequestMapping("/getcurr")
+    @ResponseBody
+    public List<Curriculum> get(){
+        return curriculumMapper.selectAll();
+    }
+
+
     /**
      * @Description: 查询课程
      * @Param: [curriculum]
