@@ -50,7 +50,7 @@ public class DictionariesController {
     }
 
     /**
-     * @Description: 给猴子的接口
+     * @Description: 自己用的类
      * @Param: [dictionaries, request]
      * @return: java.util.List<java.util.Map       <       java.lang.String       ,       java.lang.Object>>
      * @Author: ywj
@@ -64,6 +64,21 @@ public class DictionariesController {
         maps.forEach(s->set.add(s));
         return set;
     }
+
+    /**    
+        *@Description: 给猴子的接口
+        * @Param: [dictionaries, request]
+        * @return: java.util.List<com.gym.ssm.entity.Dictionaries>
+        * @Author: ywj
+        * @Date: 2019/2/27 0027
+        */
+    @RequestMapping("/getdicts")
+    @ResponseBody
+    public List<Dictionaries> getDictionariess(Dictionaries dictionaries, HttpServletRequest request) {
+        List<Dictionaries> maps = dbiz.GetDictionaries(dictionaries);
+        return maps;
+    }
+
 
     /**
      * @Description: 增加基础数据
