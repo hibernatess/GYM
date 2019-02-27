@@ -68,8 +68,8 @@ public class CoachController {
      * @param coach
      * @return
      */
-    @RequestMapping("/addcoach")
     @ResponseBody
+    @RequestMapping("/addcoach")
     public boolean addCoach(Coach coach) {
         if (coachSeriver.addCoach(coach) > 0) {
             return true;

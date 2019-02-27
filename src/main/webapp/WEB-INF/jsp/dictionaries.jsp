@@ -2,9 +2,9 @@
 <html>
 <head>
     <title>基础数据管理</title>
-    <link href="layui/css/layui.css" media="all" rel="stylesheet" >
-    <script src="layui/layui.js"></script>
-    <script src="js/jquery-3.3.1.js"></script>
+    <link href="../../layui/css/layui.css" media="all" rel="stylesheet" >
+    <script src="../../layui/layui.js"></script>
+    <script src="../../js/jquery-3.3.1.js"></script>
 </head>
 <body>
 
@@ -41,5 +41,5 @@
 
 
 </body>
-<script src="js/dictionaries.js"></script>
+<script src="../../js/dictionaries.js"></script>
 </html>
