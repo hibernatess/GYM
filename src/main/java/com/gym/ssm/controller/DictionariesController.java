@@ -31,7 +31,7 @@ public class DictionariesController {
     /**
      * @Description: 查询基础数据
      * @Param: [dictionaries, request]
-     * @return: java.util.Map<java.lang.String                               ,                               java.lang.Object>
+     * @return: java.util.Map<java.lang.String                                                                                                                               ,                                                                                                                               java.lang.Object>
      * @Author: ywj
      * @Date: 2019/2/26 0026
      */
@@ -52,6 +52,22 @@ public class DictionariesController {
     }
 
     /**
+     * @Description: 给猴子的接口
+     * @Param: [dictionaries, request]
+     * @return: java.util.List<java.util.Map   <   java.lang.String   ,   java.lang.Object>>
+     * @Author: ywj
+     * @Date: 2019/2/27 0027
+     */
+    @RequestMapping("/getdict")
+    @ResponseBody
+    public List<Map<String, Object>> getDictionaries(Dictionaries dictionaries, HttpServletRequest request) {
+
+        List<Map<String, Object>> maps = dbiz.GetDictionaries(dictionaries);
+
+        return maps;
+    }
+
+    /**
      * @Description: 增加基础数据
      * @Param: [dictionaries]
      * @return: boolean
@@ -67,8 +83,8 @@ public class DictionariesController {
         return false;
     }
 
-    /**    * @return: boolean
-
+    /**
+     * @return: boolean
      * @Description: 删除基础数据
      * @Param: [dictionaries]
      * @Author: ywj
@@ -83,13 +99,13 @@ public class DictionariesController {
         return false;
     }
 
-/**    
-    *@Description: 修改基础数据类型
-    * @Param: [dictionaries]
-    * @return: boolean
-    * @Author: ywj
-    * @Date: 2019/2/26 0026
-    */
+    /**
+     * @Description: 修改基础数据类型
+     * @Param: [dictionaries]
+     * @return: boolean
+     * @Author: ywj
+     * @Date: 2019/2/26 0026
+     */
     @RequestMapping("/put")
     @ResponseBody
     public boolean PutDictionaries(Dictionaries dictionaries) {
