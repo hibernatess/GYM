@@ -33,6 +33,9 @@ layui.use(['table', 'form'],
                     field: 'jname',
                     title: '教练姓名',
                     // width: 180,
+                },{
+                    field: 'cprice',
+                    title: '课程价格',
                 }, {
                     field: 'sid',
                     title: '是否收费', templet: function (d) {
@@ -85,7 +88,7 @@ layui.use(['table', 'form'],
                     btn: ['确定', '取消'],
                     yes: function (index, layero) {//确定执行函数
                         //执行添加方法
-                        $.getJSON("curriculum/post", {
+                        $.getJSON("/curriculum/post", {
                             cname: $('#cname').val(),//课程名字
                             cattend: $('#cattend').val(),//课程时间
                             jid: $('#jid').val(),//教练id
@@ -141,16 +144,16 @@ layui.use(['table', 'form'],
                         $('#jid').val(data.jid);//教练
                         $('#sid').val(data.sid);//是否收费
                         $('#cprice').val(data.cprice)//价格
-                        layui.form.render('select');
+                        layui.form.render();
                     }, yes: function (index, layero) {//确定回调函数
                         $.ajaxSettings.async = false;
-                        $.getJSON('curriculumf/put', {
+                        $.getJSON('/curriculum/put', {
                             cname: $('#cname').val(),//课程名字
                             cattend: $('#cattend').val(),//课程时间
                             jid: $('#jid').val(),//教练id
                             sid: $('#sid').val(),//是否收费
                             cprice: $('#cprice').val(),//课程价格
-                            cid:data.cid//编号
+                            cid: data.cid//编号
                         }, function (data) {
                             if (data) {
                                 layer.alert('编辑成功', {icon: 1, title: '提示'}, function (i) {
@@ -166,6 +169,7 @@ layui.use(['table', 'form'],
                                 })
                             } else {
                                 layer.msg('编辑失败')
+
                             }
                         })
                     }, cancel: function (index, layero) {
@@ -196,16 +200,17 @@ layui.use(['table', 'form'],
  */
 function coach() {
     $.ajaxSettings.async = false;
-    $.getJSON('coach/getcoach', {}, function (data) {
+    $.getJSON('coach/getCoachs', {}, function (data) {
         var html = "";
         // 返回处理的方法
         $.each(data, function (index, item) {
-            html += "<option value=" + item.role_id + ">" + item.role_name
+            html += "<option value=" + item.jid + ">" + item.jname
                 + "</option>";
         });
         $('#jid').html(html);
     })
 }
+
 $(function () {
     coach();
 })

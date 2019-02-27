@@ -8,7 +8,7 @@ public class SqlCoach {
     public String selectCoach(Coach coach){
         String s = new SQL() {
             {
-                SELECT(" c.jid,c.jname,c.jsex,s.svalues,c.jage,c.jpwd,c.jregister,c.jaddress,c.jflag,c.jimages,c.jurid,r.cname ");
+                SELECT(" c.jid,c.jname,c.jsex,s.svalues,c.jage,c.jpwd,c.jregister,c.jaddress,c.jflag,c.jimages,c.jurid,r.cname,s.sid,c.cid ");
                 //表名
                 FROM(" coach c");
                 INNER_JOIN(" curriculum r on c.cid=r.cid ");

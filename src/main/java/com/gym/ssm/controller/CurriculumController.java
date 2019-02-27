@@ -39,6 +39,20 @@ public class CurriculumController {
     CurriculumMapper curriculumMapper;
 
     /**
+     * @Description: 供前端其他模块调用查询数据
+     * @Param: []
+     * @return: java.util.List<com.gym.ssm.entity.Curriculum>
+     * @Author: hw
+     * @Date: 2019/2/27
+     */
+    @RequestMapping("/getcurr")
+    @ResponseBody
+    public List<Curriculum> get() {
+        return curriculumMapper.selectAll();
+    }
+
+
+    /**
      * @Description: 查询课程
      * @Param: [curriculum]
      * @return: java.util.List<com.gym.ssm.entity.Curriculum>
@@ -70,7 +84,7 @@ public class CurriculumController {
      * @Author: hw
      * @Date: 2019/2/25
      */
-    @PostMapping("/post")
+    @RequestMapping("/post")
     @ResponseBody
     public boolean PostCurriculum(Curriculum curriculum) {
         if (biz.PostCurriculum(curriculum) > 0) {
@@ -102,8 +116,8 @@ public class CurriculumController {
      * @Author: hw
      * @Date: 2019/2/25
      */
-    @RequestMapping("/put")
     @ResponseBody
+    @RequestMapping("/put")
     public boolean PutCurriculum(Curriculum curriculum) {
         if (biz.PutCurriculum(curriculum) > 0) {
             return true;
