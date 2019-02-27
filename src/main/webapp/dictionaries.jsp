@@ -8,22 +8,38 @@
 </head>
 <body>
 
-<table class="layui-table" lay-skin="nob">
-    <tr>
-        <td><label class="layui-form-label">类别</label></td>
-        <td>
+
+
+<!--搜索维度-->
+<div class="layui-form">
+    <div class="layui-form-item">
+        <label class="layui-form-label">类别</label>
+        <div class="layui-input-inline">
             <select class="layui-select" id="sname" name=sname>
             </select>
-        </td>
-        <td><label class="layui-form-label">数据值</label></td>
-        <td> <input type="text" id='svalues' name="svalues"
-                    lay-verify="required" placeholder="请输入数据值" autocomplete="true"
-                    class="layui-input"></td>
-        <td>  <button class="layui-btn" data-type="reload">查询</button></td>
-    </tr>
-</table>
+        </div>
+        <label class="layui-form-label">数据值</label>
+        <div class="layui-input-inline">
+        <input type="text" id='svalues' name="svalues"
+               lay-verify="required" placeholder="请输入数据值" autocomplete="true"
+               class="layui-input">
+        </div>
+        <button class="layui-btn" data-type="reload">查询</button>
+        <button class="layui-btn layui-btn-danger" data-type="add">新建</button>
+    </div>
+</div>
+
 <!--数据表格-->
 <table class="layui-hide" id="dictionaries" lay-filter="dictionaries" lay-data="{id:'idTest'}"></table>
+
+
+
+
+
+
+
+
+
 </body>
 <script src="js/dictionaries.js"></script>
 </html>

@@ -1,5 +1,5 @@
-layui.use(['table', 'layer'], function () {
-    var table = layui.table, layer = layui.layer;
+layui.use(['table', 'layer','form'], function () {
+    var table = layui.table, layer = layui.layer,form=layui.form;
 
     table.render({
         elem: "#dictionaries",
@@ -46,7 +46,7 @@ layui.use(['table', 'layer'], function () {
 
 
     //绑定事件
-    $('.layui-table .layui-btn').on('click', function () {
+    $('.layui-form .layui-btn').on('click', function () {
         var type = $(this).data('type');
         active[type] ? active[type].call(this) : '';
     });
