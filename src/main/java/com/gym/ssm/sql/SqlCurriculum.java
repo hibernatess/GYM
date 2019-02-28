@@ -18,7 +18,7 @@ public class SqlCurriculum {
     public String selectCurriculum(Curriculum curriculum){
         String s = new SQL() {
             {
-                SELECT(" cu.cid,cu.cattend,cu.cname,c.jname,cu.cprice,cu.sid ");
+                SELECT(" cu.cid,cu.cattend,cu.cname,c.jname,c.jid,cu.cprice,cu.sid ");
                 //表名
                 FROM(" coach c");
                 INNER_JOIN(" curriculum cu on c.jid=cu.jid  ");

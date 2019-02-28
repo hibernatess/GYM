@@ -33,7 +33,7 @@ public class CurriculumBizImpl implements CurriculumBiz {
      */
     @Override
     public int PostCurriculum(Curriculum curriculum) {
-        return curriculumMapper.insert(curriculum);
+        return curriculumMapper.insertSelective(curriculum);
     }
 
     /**

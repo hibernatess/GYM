@@ -39,6 +39,20 @@ public class CurriculumController {
     CurriculumMapper curriculumMapper;
 
     /**
+     * @Description: 供前端其他模块调用查询数据
+     * @Param: []
+     * @return: java.util.List<com.gym.ssm.entity.Curriculum>
+     * @Author: hw
+     * @Date: 2019/2/27
+     */
+    @RequestMapping("/getcurr")
+    @ResponseBody
+    public List<Curriculum> get() {
+        return curriculumMapper.selectAll();
+    }
+
+
+    /**
      * @Description: 查询课程
      * @Param: [curriculum]
      * @return: java.util.List<com.gym.ssm.entity.Curriculum>
@@ -52,12 +66,8 @@ public class CurriculumController {
         bean.setPageBean(request);
         Page<Object> objects = PageHelper.startPage(bean.getPage(), bean.getRows());
         //如果对象不为空则查询,否则直接查询全部
-        List list = null;
-        if (!StringUtils.isEmpty(curriculum.getCname())) {
-            list = biz.GetCurriculum(curriculum);
-        } else {
-            list = curriculumMapper.selectAll();
-        }
+        List list = biz.GetCurriculum(curriculum);
+
         PageInfo pageInfo = new PageInfo(list);
         Map<String, Object> map = new HashMap<>();
         map.put("code", 0);
@@ -74,7 +84,7 @@ public class CurriculumController {
      * @Author: hw
      * @Date: 2019/2/25
      */
-    @PostMapping("/post")
+    @RequestMapping("/post")
     @ResponseBody
     public boolean PostCurriculum(Curriculum curriculum) {
         if (biz.PostCurriculum(curriculum) > 0) {
@@ -106,8 +116,8 @@ public class CurriculumController {
      * @Author: hw
      * @Date: 2019/2/25
      */
-    @RequestMapping("/put")
     @ResponseBody
+    @RequestMapping("/put")
     public boolean PutCurriculum(Curriculum curriculum) {
         if (biz.PutCurriculum(curriculum) > 0) {
             return true;
