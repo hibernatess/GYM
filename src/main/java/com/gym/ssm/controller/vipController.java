@@ -40,13 +40,13 @@ public class vipController {
      * @param hid
      * @return
      */
-    @RequestMapping("/vip/{hid}")
-    public String vipselectbyid(HttpServletRequest request,@PathVariable(value = "hid") Integer hid){
-//        hid=Integer.parseInt(request.getParameter("hid"));
+    @RequestMapping("/vip")
+    public String vipselectbyid(HttpServletRequest request, Integer hid){
+        hid=Integer.parseInt(request.getParameter("hid"));
         vip vipselectbyhid = VipBiz.vipselectbyhid(1);
         request.setAttribute("vipselectbyhid",vipselectbyhid);
         System.out.println(vipselectbyhid);
-        return "vip";
+        return "WEB-INF/jsp/vip";
     }
 
     /**
@@ -67,7 +67,7 @@ public class vipController {
         v.setHid(Integer.parseInt(request.getParameter("hid")));
         v.setImg(xxx.getOriginalFilename());
         VipBiz.uploadimg(v);
-       return "redirect:/vip/vip";
+       return "forward:/vip/vip";
     }
 
     /**
@@ -79,7 +79,7 @@ public class vipController {
     @RequestMapping("/update")
     public String update(HttpServletRequest request,vip vip){
         VipBiz.update(vip);
-        return "redirect:/vip/vip";
+        return "forward:/vip/vip";
     }
 
     @RequestMapping("/mycum")
@@ -89,7 +89,7 @@ public class vipController {
         pageBea.setPageBean(request);
         //前段传过来的page和limit的值  放入到pagehelper中
         Page<Object> objects = PageHelper.startPage(pageBea.getPage(), pageBea.getRows());
-        vip.setHid(1);
+        vip.setHid(Integer.parseInt(request.getParameter("hid")));
         List<Map> listcum = VipBiz.listcum(vip);
         PageInfo pageInfo = new PageInfo(listcum);
         Map<Object,Object> map=new HashMap<>();

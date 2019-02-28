@@ -30,6 +30,7 @@
         /* 上传*/
         function upload(){
             document.getElementById("upimg").submit();
+
         }
 
     </script>
@@ -276,10 +277,10 @@
 <script>
     layui.use('table', function(){
         var table = layui.table;
-
+         var    hid=document.getElementById("hid").value;
         table.render({
             elem: '#test'
-            ,url:'/vip/mycum'
+            ,url:'/vip/mycum?hid='+hid
             ,cols: [[
                  {field:'cname',  title: '课程名', sort: true}
                 ,{field:'cattend',  title: '课程时间'}

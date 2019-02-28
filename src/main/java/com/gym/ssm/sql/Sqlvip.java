@@ -1,11 +1,10 @@
 package com.gym.ssm.sql;
 
-import com.gym.ssm.entity.Coach;
 import com.gym.ssm.entity.vip;
 import org.apache.ibatis.jdbc.SQL;
 import org.springframework.util.StringUtils;
 
-public class Sqlvip {
+public class SqlVip {
     public String uploadimg(vip vip){
         String sql = new SQL() {
             {
