@@ -24,7 +24,7 @@ public class Memu {
     /**
      * 路径
      */
-    private String href;
+    private String url;
 
 
     @Transient
@@ -33,11 +33,11 @@ public class Memu {
     public Memu() {
     }
 
-    public Memu(String id, String oldid, String name, String href, List<Memu> children) {
+    public Memu(String id, String oldid, String name, String url, List<Memu> children) {
         this.id = id;
         this.oldid = oldid;
         this.name = name;
-        this.href = href;
+        this.url = url;
         this.children = children;
     }
 
@@ -65,12 +65,12 @@ public class Memu {
         this.name = name;
     }
 
-    public String getHref() {
-        return href;
+    public String getUrl() {
+        return url;
     }
 
-    public void setHref(String href) {
-        this.href = href;
+    public void setUrl(String url) {
+        this.url = url;
     }
 
     public List<Memu> getChildren() {

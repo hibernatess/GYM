@@ -64,15 +64,15 @@
 
     <!-- 选项卡要显示的地方 -->
     <div class="layui-body" style="margin-top: -10px">
-        <div class="layui-tab" lay-filter="tabs" lay-allowClose="true">
+        <div class="layui-tab layui-tab-card" lay-filter="tabs" lay-allowClose="true">
           <ul class="layui-tab-title">
             <li class="layui-this"> 首页</li>
 
             </ul>
             <div class="layui-tab-content">
                  <div class="layui-tab-item layui-show">
-      <img src="jpg/003GB4c-11.jpg" width="95%" height="80%">
-    </div>
+                  <img src="jpg/003GB4c-11.jpg" width="95%" height="80%">
+                 </div>
 
             </div>
         </div>
@@ -88,11 +88,8 @@
     $(function () {
         getTreeNode();
     });
-    layui.use('element', function () {
-        var $ = layui.jquery
-            , element = layui.element; //Tab的切换功能，切换事件监听等，需要依赖element模块
 
-    })
+
 
 
 </script>

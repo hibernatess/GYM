@@ -1,23 +1,17 @@
 package com.gym.ssm.controller;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.gym.ssm.entity.peng.Admin;
 import com.gym.ssm.entity.peng.Coach;
+import com.gym.ssm.entity.peng.Admin;
 import com.gym.ssm.entity.peng.Login;
-import com.gym.ssm.entity.peng.Vip;
-import com.gym.ssm.service.peng.LoginService;
+import com.gym.ssm.entity.vip;
+import com.gym.ssm.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import javax.sound.midi.Soundbank;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 /**
  * @ProjectNmae:GYM03
@@ -41,12 +35,11 @@ public class LoginController {
     @RequestMapping("/login")
     @ResponseBody
     public boolean login(String name, String pword, HttpServletRequest argo) {
-        Map<String, Object> loginMap = new HashMap<String, Object>();
-        Vip vip = loginService.vipLogin(name, pword);
+        vip vip1 = loginService.vipLogin(name, pword);
         Login login = null;
         HttpSession session = argo.getSession();
         Boolean flag = true;
-        if (vip == null) {
+        if (vip1 == null) {
             Coach coach = loginService.coachLogin(name, pword);
             if (coach == null) {
                 Admin admin = loginService.adminLogin(name, pword);
@@ -59,12 +52,19 @@ public class LoginController {
                 login = setLogin(coach.getJname(), coach.getJpwd(), coach.getJurid(), coach.getCid());
             }
         } else {
-            login = setLogin(vip.getHname(), vip.getHpwd(), vip.getJurid(), vip.getHid());
+            login = setLogin(vip1.getHname(), vip1.getHpwd(), vip1.getJurid(), vip1.getHid());
         }
         session.setAttribute("login", login);
         return flag;
     }
 
+    /***
+     * @Author peng
+     * @Description 为登录用户赋值
+     * @Date 10:02 2019/2/28
+     * @Param [name, pword, mid, aid]
+     * @return com.gym.ssm.entity.peng.Login
+     **/
     public Login setLogin(String name, String pword, String mid, int aid) {
         Login l = new Login(name, pword, mid, aid);
         return l;

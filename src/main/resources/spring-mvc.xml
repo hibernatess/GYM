@@ -14,7 +14,7 @@
  ">
     <!--1.配置注解扫描位置-->
     <aop:aspectj-autoproxy/>
-    <context:component-scan base-package="com.gym.ssm.controller"/>
+    <context:component-scan base-package="com.gym.ssm"/>
     <!--2.配置处理器映射,通过注解查找-->
     <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"></bean>
     <!--3.配置适配器-->

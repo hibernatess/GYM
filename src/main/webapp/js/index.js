@@ -1,6 +1,7 @@
 const layer = layui.layer;
 const table = layui.table;
 const element = layui.element;
+var $ = layui.jquery;
 
 function getTreeNode() {
     var mid = $("#memu").val();
@@ -8,31 +9,38 @@ function getTreeNode() {
 
         // console.log(data);
         layui.tree({
-                elem: '#sidemenubar' //传入元素选择器
-                , skin: 'sidebar'
-                , nodes: data
-                , click: function (node) {//点击tree菜单项的时候
-                    var element = layui.element;
-                    var exist = $("li[lay-id='" + node.id + "']").length;//判断是不是用重复的选项卡
+            elem: '#sidemenubar' //传入元素选择器
+            , skin: 'sidebar'
+            , nodes: data
+            , click: function (node) {//点击tree菜单项的时候
+                settab(node.id, node.name, node.url);
+            }
 
-                    if (exist > 0) {
-                        element.tabChange('tabs', node.id);//切换到已有的选项卡
+        });
+    })
+}
 
-                    } else {
-                        if (node.href != null && node.href.length > 0) {//判断是否需要新增选项卡;
-                            element.tabAdd('tabs', {
-                                title: node.name,
-                                content: '<iframe scrolling="yes" frameborder="0"    width="99%" height="80%" src="' + node.href + '" style="color: #009688 "></iframe>'//支持传入html
-                                ,
-                                id: node.id
-                            });
-                            element.tabChange('tabs', node.id);//切换到已有的选项卡
-                        }
-                    }
-                }
+function settab(id, name, url) {
+    layui.use('element', function () {
+        var $ = layui.jquery
+            , element = layui.element; //Tab的切换功能，切换事件监听等，需要依赖element模块
+        var exist = $("li[lay-id='" + id + "']").length;//判断是不是用重复的选项卡
 
-    });
-})
+        if (exist > 0) {
+            element.tabChange('tabs', id);//切换到已有的选项卡
+
+        } else {
+            if (url != null && url.length > 0) {//判断是否需要新增选项卡;
+                element.tabAdd('tabs', {
+                    title: name,
+                    content: '<iframe scrolling="yes" frameborder="0"    width="99%" height="80%" src="/GYM03/go?name=' + url + '" style="color: #009688 "></iframe>'//支持传入html//支持传入html
+                    ,
+                    id: id
+                });
+                element.tabChange('tabs', id);//切换到已有的选项卡
+            }
+        }
+    })
 }
 
 // /**

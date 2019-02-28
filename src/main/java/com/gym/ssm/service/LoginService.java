@@ -1,8 +1,8 @@
-package com.gym.ssm.service.peng;
+package com.gym.ssm.service;
 
 import com.gym.ssm.entity.peng.Admin;
 import com.gym.ssm.entity.peng.Coach;
-import com.gym.ssm.entity.peng.Vip;
+import com.gym.ssm.entity.vip;
 
 import java.util.Map;
 
@@ -20,7 +20,7 @@ public interface LoginService {
 
     Admin adminLogin(String name, String pword);
 
-    Vip vipLogin(String name, String pword);
+      vip vipLogin(String name, String pword);
 
     Coach coachLogin(String name, String pword);
 
