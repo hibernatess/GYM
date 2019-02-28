@@ -1,6 +1,6 @@
 package com.gym.ssm.sql;
 
-import com.gym.ssm.entity.peng.Coach;
+import com.gym.ssm.entity.Coach;
 import com.gym.ssm.entity.vip;
 import org.apache.ibatis.jdbc.SQL;
 import org.springframework.util.StringUtils;
@@ -28,6 +28,14 @@ public class Sqlvip {
         }.toString();
         return  sql ;
     }
-
-
+    public String listcum(vip vip){
+        String sql = new SQL() {
+            {
+                SELECT ("v.hname,cm.cname,cm.cattend,cm.cprice,ch.jname");
+                FROM("vipcum vm,vip v,curriculum cm,coach ch");
+                WHERE ("v.hid=vm.hid and vm.cid=cm.cid and ch.jid=vm.jid and v.hid="+vip.getHid()+"");
+            }
+        }.toString();
+        return  sql ;
+    }
 }
