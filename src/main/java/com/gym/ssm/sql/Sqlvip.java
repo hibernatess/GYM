@@ -1,6 +1,6 @@
 package com.gym.ssm.sql;
 
-import com.gym.ssm.entity.Coach;
+import com.gym.ssm.entity.peng.Coach;
 import com.gym.ssm.entity.vip;
 import org.apache.ibatis.jdbc.SQL;
 import org.springframework.util.StringUtils;
@@ -28,4 +28,6 @@ public class Sqlvip {
         }.toString();
         return  sql ;
     }
+
+
 }
