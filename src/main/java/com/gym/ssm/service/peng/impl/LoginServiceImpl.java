@@ -4,14 +4,11 @@ import com.gym.ssm.entity.peng.Admin;
 import com.gym.ssm.entity.peng.Coach;
 import com.gym.ssm.entity.peng.Vip;
 import com.gym.ssm.service.peng.LoginService;
-import com.gym.ssm.tk.mapper.peng.AdminMapper;
-import com.gym.ssm.tk.mapper.peng.CoachMapper;
-import com.gym.ssm.tk.mapper.peng.VipMapper;
+import com.gym.ssm.mapper.AdminMapper;
+import com.gym.ssm.mapper.CoachMapper;
+import com.gym.ssm.mapper.VipMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * @ProjectNmae:GYM03
@@ -36,8 +33,7 @@ public class LoginServiceImpl implements LoginService {
         Admin admin = new Admin();
         admin.setAname(name);
         admin.setApword(pword);
-        Admin getAdmin = adminMapper.selectOne(admin);
-        return getAdmin;
+        return adminMapper.adminLogin(admin);
     }
 
     @Override
@@ -45,8 +41,8 @@ public class LoginServiceImpl implements LoginService {
         Vip vip = new Vip();
         vip.setHname(name);
         vip.setHpwd(pword);
-        Vip getVip = vipMapper.selectOne(vip);
-        return vip;
+
+        return vipMapper.adminLogin(vip);
     }
 
     @Override
@@ -54,8 +50,7 @@ public class LoginServiceImpl implements LoginService {
         Coach coach = new Coach();
         coach.setJname(name);
         coach.setJpwd(pword);
-        Coach getCoach = coachMapper.selectOne(coach);
-        return null;
+        return coachMapper.getCoachLogin(coach);
     }
 
 

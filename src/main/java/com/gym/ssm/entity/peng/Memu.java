@@ -1,6 +1,7 @@
 package com.gym.ssm.entity.peng;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Table(name = "memu")
 public class Memu {
@@ -8,92 +9,75 @@ public class Memu {
      * id
      */
     @Id
-    private String mid;
+    private String id;
 
     /**
      * 父id
      */
-    private String oldmid;
+    private String oldid;
 
     /**
      * 菜单名
      */
-    private String mname;
+    private String name;
 
     /**
      * 路径
      */
-    private String murl;
+    private String href;
 
-    /**
-     * 获取id
-     *
-     * @return mid - id
-     */
-    public String getMid() {
-        return mid;
+
+    @Transient
+    private List<Memu> children;
+
+    public Memu() {
     }
 
-    /**
-     * 设置id
-     *
-     * @param mid id
-     */
-    public void setMid(String mid) {
-        this.mid = mid == null ? null : mid.trim();
+    public Memu(String id, String oldid, String name, String href, List<Memu> children) {
+        this.id = id;
+        this.oldid = oldid;
+        this.name = name;
+        this.href = href;
+        this.children = children;
     }
 
-    /**
-     * 获取父id
-     *
-     * @return oldmid - 父id
-     */
-    public String getOldmid() {
-        return oldmid;
+    public String getId() {
+        return id;
     }
 
-    /**
-     * 设置父id
-     *
-     * @param oldmid 父id
-     */
-    public void setOldmid(String oldmid) {
-        this.oldmid = oldmid == null ? null : oldmid.trim();
+    public void setId(String id) {
+        this.id = id;
     }
 
-    /**
-     * 获取菜单名
-     *
-     * @return mname - 菜单名
-     */
-    public String getMname() {
-        return mname;
+    public String getOldid() {
+        return oldid;
     }
 
-    /**
-     * 设置菜单名
-     *
-     * @param mname 菜单名
-     */
-    public void setMname(String mname) {
-        this.mname = mname == null ? null : mname.trim();
+    public void setOldid(String oldid) {
+        this.oldid = oldid;
     }
 
-    /**
-     * 获取路径
-     *
-     * @return murl - 路径
-     */
-    public String getMurl() {
-        return murl;
+    public String getName() {
+        return name;
     }
 
-    /**
-     * 设置路径
-     *
-     * @param murl 路径
-     */
-    public void setMurl(String murl) {
-        this.murl = murl == null ? null : murl.trim();
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getHref() {
+        return href;
+    }
+
+    public void setHref(String href) {
+        this.href = href;
+    }
+
+    public List<Memu> getChildren() {
+        return children;
+    }
+
+    public void setChildren(List<Memu> children) {
+        this.children = children;
     }
 }

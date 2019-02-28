@@ -12,16 +12,25 @@ public class Login {
     private String name;
     private String pword;
     private String mid;
+    private int aid;
 
     public Login() {
     }
 
-    public Login(String name, String pword, String mid) {
+    public Login(String name, String pword, String mid, int aid) {
         this.name = name;
         this.pword = pword;
         this.mid = mid;
+        this.aid = aid;
     }
 
+    public int getAid() {
+        return aid;
+    }
+
+    public void setAid(int aid) {
+        this.aid = aid;
+    }
 
     public String getName() {
         return name;

@@ -68,7 +68,7 @@ public class CurriculumBizImpl implements CurriculumBiz {
      * @Date: 2019/2/25
      */
     @Override
-    public List<Map<String,Object>> GetCurriculum(Curriculum curriculum) {
+    public List<Map<String, Object>> GetCurriculum(Curriculum curriculum) {
         return curriculumMapper.GetCurriculum(curriculum);
     }
 }
