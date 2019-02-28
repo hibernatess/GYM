@@ -32,5 +32,16 @@ public class SqlDictionaries {
         return sb.toString();
     }
 
+    /**
+     * @Description: 获取类别
+     * @Param: []
+     * @return: java.lang.String
+     * @Author: ywj
+     * @Date: 2019/2/28 0028
+     */
+    public String getSname() {
+        return "SELECT sname FROM  dictionaries GROUP BY sname   ";
+    }
+
 
 }
