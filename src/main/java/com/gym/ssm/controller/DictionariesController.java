@@ -64,6 +64,16 @@ public class DictionariesController {
         maps.forEach(s->set.add(s));
         return set;
     }
+    @RequestMapping("/getsname")
+    @ResponseBody
+    public   Map<String,Object> getSname(){
+        Map<String,Object> maps=new HashMap<>();
+        List<Map<String, Object>> sname = dbiz.getSname();
+        maps.put("content",sname);
+        maps.put("code","0");
+        maps.put("type","success");
+        return  maps;
+    }
 
     /**    
         *@Description: 给猴子的接口
