@@ -4,6 +4,9 @@ import com.gym.ssm.entity.vip;
 import com.gym.ssm.mapper.vipMapper;
 import tk.mybatis.mapper.common.Mapper;
 
+import java.util.List;
+import java.util.Map;
+
 
 public interface vipBiz{
     /**
@@ -17,7 +20,7 @@ public interface vipBiz{
      * @param vip
      * @return
      */
-    public int uploadimg(vip vip);
+    public String uploadimg(vip vip);
 
     /**
      * 修改会员个人信息
@@ -25,4 +28,11 @@ public interface vipBiz{
      * @return
      */
     public int update(vip vip);
+
+    /**
+     * 查询课程
+     * @param vip
+     * @return
+     */
+    public List<Map> listcum(vip vip);
 }

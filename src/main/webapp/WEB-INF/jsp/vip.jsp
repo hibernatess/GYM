@@ -11,14 +11,14 @@
     <title>我的信息</title>
     <link rel="stylesheet" href="../../layui/css/layui.css">
     <script src="../../layui/layui.js"></script>
-    <script>
-        layui.use(['layer', 'form'], function(){
-            var layer = layui.layer
-                ,form = layui.form;
-                layer.msg("");
+    <%--<script>--%>
+        <%--layui.use(['layer', 'form'], function(){--%>
+            <%--var layer = layui.layer--%>
+                <%--,form = layui.form;--%>
+                <%--layer.msg("");--%>
 
-        });
-    </script>
+        <%--});--%>
+    <%--</script>--%>
 
 
     <script>
@@ -37,7 +37,12 @@
     h3{
       font-family: 华文行楷;
     }
-
+    tr{
+        font-family: 华文行楷;
+    }
+    span{
+        font-family: 华文行楷;
+    }
 </style>
 </head>
 
@@ -267,18 +272,21 @@
 
 
 </script>
+
 <script>
     layui.use('table', function(){
         var table = layui.table;
 
         table.render({
             elem: '#test'
-            ,url:''
+            ,url:'/vip/mycum'
             ,cols: [[
-                {field:'cname', width:400, title: '课程名', sort: true}
-                ,{field:'cattend', width:400, title: '课程时间'}
-                ,{field:'cprice', width:400, title: '价格', sort: true}
-                ,{field:'jname', width:400, title: '教练'}
+                 {field:'cname',  title: '课程名', sort: true}
+                ,{field:'cattend',  title: '课程时间'}
+                ,{field:'cprice',title: '价格', templet:function (d) {
+                        return d.cprice+"￥";
+                    }, sort: true}
+                ,{field:'jname',  title: '教练'}
             ]]
             ,page: true
         });

@@ -73,12 +73,6 @@ public class vip {
     private Integer qid;
 
     /**
-     * 课程外键
-
-     */
-    private Integer cid;
-
-    /**
      * 菜单
 
      */
@@ -339,28 +333,6 @@ public class vip {
      */
     public void setQid(Integer qid) {
         this.qid = qid;
-    }
-
-    /**
-     * 获取课程外键
-
-     *
-     * @return cid - 课程外键
-
-     */
-    public Integer getCid() {
-        return cid;
-    }
-
-    /**
-     * 设置课程外键
-
-     *
-     * @param cid 课程外键
-
-     */
-    public void setCid(Integer cid) {
-        this.cid = cid;
     }
 
     /**
