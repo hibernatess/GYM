@@ -50,13 +50,5 @@ public interface DictionariesBiz {
         * @Date: 2019/2/26 0026
         */
     public List<Dictionaries> GetDictionaries(Dictionaries dictionaries);
-/**    
-    *@Description: 获取sname
-    * @Param: []
-    * @return: java.util.List<java.util.Map<java.lang.String,java.lang.Object>>
-    * @Author: ywj
-    * @Date: 2019/2/28 0028
-    */
-    public  List<Map<String,Object>>  getSname();
 
 }

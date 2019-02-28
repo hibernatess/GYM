@@ -1,4 +1,4 @@
-package com.gym.ssm.service.peng;
+package com.gym.ssm.service;
 
 import com.gym.ssm.entity.peng.Memu;
 import com.gym.ssm.entity.peng.TreeNode;
@@ -15,4 +15,6 @@ import java.util.List;
  */
 public interface MemuService {
     List<Memu> getmemu(String mid);
+
+    List<Memu> getTreeZNode(String mid);
 }

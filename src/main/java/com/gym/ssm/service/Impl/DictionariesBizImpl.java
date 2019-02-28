@@ -44,9 +44,4 @@ public class DictionariesBizImpl implements DictionariesBiz {
 
         return dictionariesMapper.GetDictionaries(dictionaries);
     }
-
-    @Override
-    public List<Map<String, Object>> getSname() {
-        return dictionariesMapper.getSname();
-    }
 }

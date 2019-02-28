@@ -17,14 +17,24 @@ public class SqlMemu {
     public String selectmume(String mid) {
         String s = new SQL() {
             {
-                SELECT(" id,oldid,name,href");
+                SELECT(" id,oldid,name,url");
                 //表名
                 FROM(" memu ");
-                WHERE("   oldid in ('" + mid + "') ");
+                WHERE("     id in (" + mid + ") ");
             }
         }.toString();
         return s;
     }
 
-
+    public String selectmume1(String mid) {
+        String s = new SQL() {
+            {
+                SELECT(" id,oldid,name,url");
+                //表名
+                FROM(" memu ");
+                WHERE("   oldid in (" + mid + ")  ");
+            }
+        }.toString();
+        return s;
+    }
 }

@@ -1,12 +1,10 @@
-package com.gym.ssm.service.peng.impl;
+package com.gym.ssm.service.Impl;
 
 import com.gym.ssm.entity.peng.Admin;
 import com.gym.ssm.entity.peng.Coach;
-import com.gym.ssm.entity.peng.Vip;
-import com.gym.ssm.service.peng.LoginService;
+import com.gym.ssm.entity.vip;
+import com.gym.ssm.service.LoginService;
 import com.gym.ssm.mapper.AdminMapper;
-import com.gym.ssm.mapper.CoachMapper;
-import com.gym.ssm.mapper.VipMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,10 +20,6 @@ import org.springframework.stereotype.Service;
 public class LoginServiceImpl implements LoginService {
     @Autowired
     private AdminMapper adminMapper;
-    @Autowired
-    private VipMapper vipMapper;
-    @Autowired
-    private CoachMapper coachMapper;
 
 
     @Override
@@ -37,12 +31,12 @@ public class LoginServiceImpl implements LoginService {
     }
 
     @Override
-    public Vip vipLogin(String name, String pword) {
-        Vip vip = new Vip();
-        vip.setHname(name);
-        vip.setHpwd(pword);
+    public vip vipLogin(String name, String pword) {
+        vip vip1 = new vip();
+        vip1.setHname(name);
+        vip1.setHpwd(pword);
 
-        return vipMapper.adminLogin(vip);
+        return adminMapper.adminLogin1(vip1);
     }
 
     @Override
@@ -50,7 +44,7 @@ public class LoginServiceImpl implements LoginService {
         Coach coach = new Coach();
         coach.setJname(name);
         coach.setJpwd(pword);
-        return coachMapper.getCoachLogin(coach);
+        return adminMapper.getCoachLogin(coach);
     }
 
 

@@ -14,8 +14,11 @@ public interface CoachMapper extends Mapper<Coach> {
 
     /**
      * 连表查询教练表
+     *
      * @param coach
      */
-    @SelectProvider(type = SqlCoach.class,method = "selectCoach")
-    List<Map<String,Object>>  listCoach(Coach coach);
+    @SelectProvider(type = SqlCoach.class, method = "selectCoach")
+    List<Map<String, Object>> listCoach(Coach coach);
+
+
 }

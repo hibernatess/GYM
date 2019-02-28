@@ -18,5 +18,7 @@ public interface MemuMapper extends Mapper<Memu> {
     @SelectProvider(type = SqlMemu.class, method = "selectmume")
     List<Memu> getTreeNode(String mid);
 
+    @SelectProvider(type = SqlMemu.class, method = "selectmume1")
+    List<Memu> getTreeZNode(String mid);
 
 }

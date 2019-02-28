@@ -1,15 +1,12 @@
-package com.gym.ssm.service.peng.impl;
+package com.gym.ssm.service.Impl;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.gym.ssm.entity.peng.Memu;
-import com.gym.ssm.entity.peng.TreeNode;
 import com.gym.ssm.mapper.MemuMapper;
-import com.gym.ssm.service.peng.MemuService;
+import com.gym.ssm.service.MemuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Map;
 
 /**
  * @ProjectNmae:GYM03
@@ -34,8 +31,12 @@ public class MemuServiceImpl implements MemuService {
     @Override
     public List<Memu> getmemu(String mid) {
 
-        System.out.println(mid);
         return memuMapper.getTreeNode(mid);
+    }
+
+    @Override
+    public List<Memu> getTreeZNode(String mid) {
+        return memuMapper.getTreeZNode(mid);
     }
 
 
