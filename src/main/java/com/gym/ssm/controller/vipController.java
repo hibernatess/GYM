@@ -5,12 +5,11 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.gym.ssm.base.PageBean;
 import com.gym.ssm.entity.vip;
-import com.gym.ssm.service.vipBiz;
+import com.gym.ssm.service.VipBiz;
 import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
@@ -33,7 +32,7 @@ import java.util.Map;
 @RequestMapping("/vip")
 public class vipController {
     @Autowired
-    private vipBiz vipBiz;
+    private VipBiz VipBiz;
 
     /**
      * 会员个人信息
@@ -44,7 +43,7 @@ public class vipController {
     @RequestMapping("/vip/{hid}")
     public String vipselectbyid(HttpServletRequest request,@PathVariable(value = "hid") Integer hid){
 //        hid=Integer.parseInt(request.getParameter("hid"));
-        vip vipselectbyhid = vipBiz.vipselectbyhid(1);
+        vip vipselectbyhid = VipBiz.vipselectbyhid(1);
         request.setAttribute("vipselectbyhid",vipselectbyhid);
         System.out.println(vipselectbyhid);
         return "vip";
@@ -67,7 +66,7 @@ public class vipController {
         vip v=new vip();
         v.setHid(Integer.parseInt(request.getParameter("hid")));
         v.setImg(xxx.getOriginalFilename());
-        vipBiz.uploadimg(v);
+        VipBiz.uploadimg(v);
        return "redirect:/vip/vip";
     }
 
@@ -79,7 +78,7 @@ public class vipController {
      */
     @RequestMapping("/update")
     public String update(HttpServletRequest request,vip vip){
-        vipBiz.update(vip);
+        VipBiz.update(vip);
         return "redirect:/vip/vip";
     }
 
@@ -91,7 +90,7 @@ public class vipController {
         //前段传过来的page和limit的值  放入到pagehelper中
         Page<Object> objects = PageHelper.startPage(pageBea.getPage(), pageBea.getRows());
         vip.setHid(1);
-        List<Map> listcum = vipBiz.listcum(vip);
+        List<Map> listcum = VipBiz.listcum(vip);
         PageInfo pageInfo = new PageInfo(listcum);
         Map<Object,Object> map=new HashMap<>();
         map.put("code",0);

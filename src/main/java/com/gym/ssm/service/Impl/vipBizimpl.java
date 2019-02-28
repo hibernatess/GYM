@@ -1,10 +1,10 @@
 package com.gym.ssm.service.Impl;
 
 import com.gym.ssm.entity.vip;
-import com.gym.ssm.service.vipBiz;
+import com.gym.ssm.service.VipBiz;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.gym.ssm.mapper.vipMapper;
+import com.gym.ssm.mapper.VipMapper;
 
 import java.util.List;
 import java.util.Map;
@@ -16,9 +16,9 @@ import java.util.Map;
  * @create 2019-02-26-21:16
  */
 @Service
-public class vipBizimpl implements vipBiz {
+public class vipBizimpl implements VipBiz {
     @Autowired
-    private vipMapper vipMapper;
+    private VipMapper VipMapper;
 
     /**
      * 会员个人信息
@@ -28,7 +28,7 @@ public class vipBizimpl implements vipBiz {
     @Override
     public vip vipselectbyhid(Integer hid) {
 
-        return vipMapper.selectByPrimaryKey(hid);
+        return VipMapper.selectByPrimaryKey(hid);
     }
 
     /**
@@ -39,7 +39,7 @@ public class vipBizimpl implements vipBiz {
     @Override
     public String uploadimg(vip vip) {
 
-        return vipMapper.uploadimg(vip);
+        return VipMapper.uploadimg(vip);
     }
 
     /**
@@ -50,7 +50,7 @@ public class vipBizimpl implements vipBiz {
     @Override
     public int update(vip vip) {
 
-        return vipMapper.update(vip);
+        return VipMapper.update(vip);
     }
 
     /**
@@ -61,7 +61,7 @@ public class vipBizimpl implements vipBiz {
     @Override
     public List<Map> listcum(vip vip) {
 
-        return vipMapper.listcum(vip);
+        return VipMapper.listcum(vip);
     }
 
 

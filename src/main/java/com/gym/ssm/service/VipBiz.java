@@ -1,14 +1,12 @@
 package com.gym.ssm.service;
 
 import com.gym.ssm.entity.vip;
-import com.gym.ssm.mapper.vipMapper;
-import tk.mybatis.mapper.common.Mapper;
 
 import java.util.List;
 import java.util.Map;
 
 
-public interface vipBiz{
+public interface VipBiz {
     /**
      * 展示个人会员信息
      * @param hid

@@ -1,30 +1,41 @@
 package com.gym.ssm.sql;
 
-import com.gym.ssm.entity.peng.Admin;
-import com.gym.ssm.entity.peng.Vip;
+import com.gym.ssm.entity.Coach;
+import com.gym.ssm.entity.vip;
 import org.apache.ibatis.jdbc.SQL;
+import org.springframework.util.StringUtils;
 
-/**
- * @ProjectNmae:GYM03
- * @ClassName:SqlVip
- * @Description: TOOO
- * @Author:peng
- * @Date:2019/2/26 19:03
- * @Version:1.0
- */
 public class SqlVip {
-
-    public String selectVip(Vip vip) {
-        String s = new SQL() {
+    public String uploadimg(vip vip){
+        String sql = new SQL() {
             {
-                SELECT("  hname,hpwd,jurid");
-                //表名
-                FROM(" vip ");
-                WHERE(" hname='" + vip.getHname() + "' and  hpwd='" + vip.getHpwd() + "'");
+                UPDATE("vip" );
+                SET("img='"+vip.getImg()+"'");
+                WHERE ("hid="+vip.getHid()+"");
             }
         }.toString();
-        return s;
+        return  sql ;
     }
 
 
+    public String update(vip vip){
+        String sql = new SQL() {
+            {
+                UPDATE("vip" );
+                SET("hpwd='"+vip.getHpwd()+"',hphone='"+vip.getHphone()+"',hsex='"+vip.getHsex()+"',hage="+vip.getHage()+",haddress='"+vip.getHaddress()+"',remark='"+vip.getRemark()+"'");
+                WHERE ("hid="+vip.getHid()+"");
+            }
+        }.toString();
+        return  sql ;
+    }
+    public String listcum(vip vip){
+        String sql = new SQL() {
+            {
+                SELECT ("v.hname,cm.cname,cm.cattend,cm.cprice,ch.jname");
+                FROM("vipcum vm,vip v,curriculum cm,coach ch");
+                WHERE ("v.hid=vm.hid and vm.cid=cm.cid and ch.jid=vm.jid and v.hid="+vip.getHid()+"");
+            }
+        }.toString();
+        return  sql ;
+    }
 }
