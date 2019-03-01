@@ -5,7 +5,9 @@ import com.gym.ssm.entity.vip;
 import java.util.List;
 import java.util.Map;
 
-
+/**
+ * 修改3.1
+ */
 public interface VipBiz {
     /**
      * 展示个人会员信息
@@ -18,7 +20,7 @@ public interface VipBiz {
      * @param vip
      * @return
      */
-    public String uploadimg(vip vip);
+    public int uploadimg(vip vip);
 
     /**
      * 修改会员个人信息

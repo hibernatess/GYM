@@ -14,6 +14,7 @@ import java.util.Map;
  * @site
  * @company
  * @create 2019-02-26-21:16
+ * 修改3.1
  */
 @Service
 public class vipBizimpl implements VipBiz {
@@ -37,7 +38,7 @@ public class vipBizimpl implements VipBiz {
      * @return
      */
     @Override
-    public String uploadimg(vip vip) {
+    public int uploadimg(vip vip) {
 
         return VipMapper.uploadimg(vip);
     }

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
@@ -26,9 +27,9 @@ import java.util.Map;
  * @site
  * @company
  * @create 2019-02-26-21:20
+ * 修改3.1
  */
 @Controller
-
 @RequestMapping("/vip")
 public class vipController {
     @Autowired
@@ -41,11 +42,10 @@ public class vipController {
      * @return
      */
     @RequestMapping("/vip")
-    public String vipselectbyid(HttpServletRequest request, Integer hid){
+    public Object vipselectbyid(HttpServletRequest request, Integer hid){
         hid=Integer.parseInt(request.getParameter("hid"));
-        vip vipselectbyhid = VipBiz.vipselectbyhid(1);
+        vip vipselectbyhid = VipBiz.vipselectbyhid(hid);
         request.setAttribute("vipselectbyhid",vipselectbyhid);
-        System.out.println(vipselectbyhid);
         return "WEB-INF/jsp/vip";
     }
 
@@ -56,10 +56,9 @@ public class vipController {
      * @return
      */
     @RequestMapping("/upload")
-    public String up(HttpServletRequest request, MultipartFile xxx) {
+    public Object up(HttpServletRequest request, MultipartFile xxx) {
         try {
             FileUtils.copyInputStreamToFile(xxx.getInputStream(), new File("D://3/" + xxx.getOriginalFilename()));
-
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -67,7 +66,8 @@ public class vipController {
         v.setHid(Integer.parseInt(request.getParameter("hid")));
         v.setImg(xxx.getOriginalFilename());
         VipBiz.uploadimg(v);
-       return "forward:/vip/vip";
+        System.out.println("upimg");
+        return "forward:/vip/vip";
     }
 
     /**
@@ -77,8 +77,13 @@ public class vipController {
      * @return
      */
     @RequestMapping("/update")
-    public String update(HttpServletRequest request,vip vip){
+//    @ResponseBody
+    public Object update(HttpServletRequest request, vip vip){
         VipBiz.update(vip);
+//        Map map=new HashMap();
+//        map.put("code","cg");
+//        System.out.println("update");
+//        return map;
         return "forward:/vip/vip";
     }
 

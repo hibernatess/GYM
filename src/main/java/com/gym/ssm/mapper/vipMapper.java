@@ -10,6 +10,9 @@ import tk.mybatis.mapper.common.Mapper;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * 修改3.1
+ */
 @Repository
 public interface VipMapper extends Mapper<vip> {
 
@@ -18,8 +21,8 @@ public interface VipMapper extends Mapper<vip> {
      * @param vip
      * @return
      */
-    @SelectProvider(type = SqlVip.class,method = "uploadimg")
-    public String uploadimg(vip vip);
+    @UpdateProvider(type = SqlVip.class,method = "uploadimg")
+    public int uploadimg(vip vip);
 
     /**
      * 修改会员信息

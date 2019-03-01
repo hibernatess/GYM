@@ -3,6 +3,10 @@ package com.gym.ssm.entity;
 import lombok.ToString;
 
 import javax.persistence.*;
+
+/**
+ * ÐÞ¸Ä3.1
+ */
 @ToString
 public class vip {
     /**

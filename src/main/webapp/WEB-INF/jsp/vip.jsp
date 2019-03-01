@@ -7,10 +7,12 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
+<%--修改3.1--%>
 <head>
     <title>我的信息</title>
     <link rel="stylesheet" href="../../layui/css/layui.css">
     <script src="../../layui/layui.js"></script>
+    <script src="../../js/jquery-3.3.1.js"></script>
     <%--<script>--%>
         <%--layui.use(['layer', 'form'], function(){--%>
             <%--var layer = layui.layer--%>
@@ -29,7 +31,8 @@
 
         /* 上传*/
         function upload(){
-            document.getElementById("upimg").submit();
+        document.getElementById("upimg").submit();
+
 
         }
 
@@ -105,21 +108,21 @@
                         <legend style="margin-left: 42%"><h3>我的信息</h3></legend>
                     </fieldset>
 
-                    <form class="layui-form" action="/vip/update" lay-filter="example" method="post">
+                    <form id="updatevip" class="layui-form" action="/vip/update" lay-filter="example" method="post">
                         <input type="hidden" value="${vipselectbyhid.hid}" name="hid">
                         <div class="layui-form-item">
 
                             <div class="layui-inline">
                                 <label class="layui-form-label"><h3>用&nbsp;户&nbsp;名</h3></label>
                                 <div class="layui-input-inline">
-                                    <h3><input type="text" name="hname" readonly lay-verify="title" autocomplete="off" placeholder="请输入用户名" class="layui-input"></h3>
+                                    <h3><input type="text" name="hname" readonly lay-verify="title" autocomplete="off"  class="layui-input"></h3>
                                 </div>
                             </div>
 
                             <div class="layui-inline">
                                 <label class="layui-form-label"><h3>真&nbsp;实&nbsp;姓&nbsp;名</h3></label>
                                 <div class="layui-input-block">
-                                   <h3><input type="text" name="realname"  readonly placeholder="请输入真实姓名" autocomplete="off" class="layui-input"></h3>
+                                   <h3><input type="text" name="realname"  readonly  autocomplete="off" class="layui-input"></h3>
                                 </div>
                             </div>
 
@@ -128,14 +131,14 @@
                         <div class="layui-form-item">
                             <label class="layui-form-label"><h3>年&nbsp;龄</h3></label>
                             <div class="layui-input-inline">
-                                <input type="text" name="hage" readonly lay-verify="required" placeholder="请输入年龄" autocomplete="off" class="layui-input">
+                                <input type="text" name="hage" readonly lay-verify="required"  autocomplete="off" class="layui-input">
                             </div>
                         </div>
 
                         <div class="layui-form-item">
                             <label class="layui-form-label"><h3>密&nbsp;码</h3></label>
                             <div class="layui-input-inline">
-                                <input type="password" name="hpwd" lay-verify="pass" placeholder="请输入密码" autocomplete="off" class="layui-input">
+                                <input type="password" name="hpwd" lay-verify="pass" autocomplete="off" class="layui-input">
                             </div>
                             <div class="layui-form-mid layui-word-aux"><h3>请填写6到12位密码</h3></div>
                         </div>
@@ -158,7 +161,7 @@
                             <div class="layui-inline">
                                 <label class="layui-form-label"><h3>联&nbsp;系&nbsp;电&nbsp;话</h3></label>
                                 <div class="layui-input-block">
-                                    <input type="tel" name="hphone"  placeholder="请输入联系电话" lay-verify="required|phone" autocomplete="off" class="layui-input">
+                                    <input type="tel" name="hphone"   lay-verify="required|phone" autocomplete="off" class="layui-input">
                                 </div>
                             </div>
                         </div>
@@ -166,20 +169,20 @@
                         <div class="layui-form-item">
                             <label class="layui-form-label"><h3>详&nbsp;细&nbsp;地&nbsp;址</h3></label>
                             <div class="layui-input-block">
-                                <h3><input type="text" name="haddress"  lay-verify="title" autocomplete="off" placeholder="请输入详细地址" class="layui-input"></h3>
+                                <h3><input type="text" name="haddress"  lay-verify="title" autocomplete="off"  class="layui-input"></h3>
                             </div>
                         </div>
 
                         <div class="layui-form-item layui-form-text">
                             <label class="layui-form-label"><h3>个&nbsp;人&nbsp;简&nbsp;介</h3></label>
                             <div class="layui-input-block">
-                               <h3><textarea placeholder="请输入内容"  class="layui-textarea" name="remark"></textarea> </h3>
+                               <h3><textarea   class="layui-textarea" name="remark"></textarea> </h3>
                             </div>
                         </div>
 
                         <div class="layui-form-item">
                             <div class="layui-input-block">
-                               <h3><button class="layui-btn layui-btn-warm layui-btn-radius" lay-submit="" lay-filter="demo1" style="margin-left: 35%">更新信息</button></h3>
+                               <h3><button class="layui-btn layui-btn-warm layui-btn-radius" lay-submit=""  lay-filter="demo1" style="margin-left: 35%">更新信息</button></h3>
                             </div>
                         </div>
                     </form>
@@ -239,12 +242,17 @@
                 layedit.sync(editIndex);
             }
         });
-        //监听提交
+        // 监听提交
         form.on('submit(demo1)', function(data){
-            // layer.alert(JSON.stringify(data.field), {
-            //     title: '最终的提交信息'
-            // })
-            // return false;
+            if(window.confirm('确定更新？')){
+                //alert("确定");
+                return true;
+            }else{
+                //alert("取消");
+                return false;
+            }
+
+
         });
         <%--//表单初始赋值--%>
         form.val('example', {
@@ -271,6 +279,23 @@
         });
     });
 
+    function x() {
+        $.ajax({
+            type: "POST",
+            url:  "/vip/update",
+            data: $('#updatevip').serialize(),// 你的formid
+            // dataType:'json',
+            async: false,
+            error: function(request) {
+                alert("Connection error");
+            },
+            success: function(data) {
+                // if(data.code=="cg") {
+                    alert("cg");
+                // }
+            }
+        });
+    }
 
 </script>
 
