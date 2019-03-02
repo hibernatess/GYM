@@ -13,30 +13,9 @@
     <link rel="stylesheet" href="../../layui/css/layui.css">
     <script src="../../layui/layui.js"></script>
     <script src="../../js/jquery-3.3.1.js"></script>
-    <%--<script>--%>
-        <%--layui.use(['layer', 'form'], function(){--%>
-            <%--var layer = layui.layer--%>
-                <%--,form = layui.form;--%>
-                <%--layer.msg("");--%>
-
-        <%--});--%>
-    <%--</script>--%>
+    <script src="../../js/Vip.js"></script>
 
 
-    <script>
-       /* 点击图片触发 文件选择的click事件*/
-        function selectfile(){
-            document.getElementById("btn_file").click();
-        }
-
-        /* 上传*/
-        function upload(){
-        document.getElementById("upimg").submit();
-
-
-        }
-
-    </script>
 <style>
     h3{
       font-family: 华文行楷;
@@ -55,15 +34,15 @@
 <div style="padding: 20px; background-color: #F2F2F2;">
     <div class="layui-row layui-col-space15">
         <div class="layui-col-md6">
-            <div class="layui-card" style="width: 400px;height: 500px;margin-left: 20%  ">
+            <div class="layui-card" style="width: 400px;height: 500px;margin-left: 10%  ">
                 <div class="layui-card-body" style="width:auto;height:auto;">
                     <%--****************************************--%>
                     <fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;">
                         <legend style="margin-left:35%;color: #eb7350;font-family: 华文行楷">个人资料</legend>
                     </fieldset>
                     <%--头像--%>
-                    <form id="upimg" action="${pageContext.request.contextPath}/vip/upload" enctype="multipart/form-data" method="post">
-                        <input type="file" id="btn_file" style="display: none" onchange="upload()" name="xxx">
+                    <form id="upimg" action="${pageContext.request.contextPath}/Vip/upload" enctype="multipart/form-data" method="post">
+                        <input type="file" id="btn_file" style="display: none" onchange="upload(this)" name="xxx" accept="image/*"/>
                         <input type="hidden" id="hid" name="hid"value="${vipselectbyhid.hid}">
                         <div class="layui-inline" style="margin-left:35%">
                             <img style="width: 110px;height: 110px" src="http://localhost:8080/img/${vipselectbyhid.img}" class="layui-circle"onclick="selectfile()">
@@ -101,14 +80,14 @@
         </div>
         <%--右侧面版--%>
         <div class="layui-col-md6">
-            <div class="layui-card" style="margin-left:-20% ">
+            <div class="layui-card" style="margin-left:auto;width:auto ">
                 <div class="layui-card-body">
                     <%--*****************************************************************--%>
                     <fieldset class="layui-elem-field layui-field-title" style="margin-top:30px;">
                         <legend style="margin-left: 42%"><h3>我的信息</h3></legend>
                     </fieldset>
 
-                    <form id="updatevip" class="layui-form" action="/vip/update" lay-filter="example" method="post">
+                    <form id="updatevip" class="layui-form" action="/Vip/update" lay-filter="example" method="post">
                         <input type="hidden" value="${vipselectbyhid.hid}" name="hid">
                         <div class="layui-form-item">
 
@@ -121,7 +100,7 @@
 
                             <div class="layui-inline">
                                 <label class="layui-form-label"><h3>真&nbsp;实&nbsp;姓&nbsp;名</h3></label>
-                                <div class="layui-input-block">
+                                <div  class="layui-input-block">
                                    <h3><input type="text" name="realname"  readonly  autocomplete="off" class="layui-input"></h3>
                                 </div>
                             </div>
@@ -201,9 +180,6 @@
 <%--*******************--%>
                         <table class="layui-hide" id="test"></table>
     <%--*********************--%>
-
-
-
                 </div>
             </div>
         </div>
@@ -244,7 +220,7 @@
         });
         // 监听提交
         form.on('submit(demo1)', function(data){
-            if(window.confirm('确定更新？')){
+            if(window.confirm('是否更新信息？')){
                 //alert("确定");
                 return true;
             }else{
@@ -269,57 +245,26 @@
 
     });
 
-    layui.use(['element', 'layer'], function(){
-        var element = layui.element;
-        var layer = layui.layer;
-
-        //监听折叠
-        element.on('collapse(test)', function(data){
-            layer.msg('展开状态：'+ data.show);
-        });
-    });
-
-    function x() {
-        $.ajax({
-            type: "POST",
-            url:  "/vip/update",
-            data: $('#updatevip').serialize(),// 你的formid
-            // dataType:'json',
-            async: false,
-            error: function(request) {
-                alert("Connection error");
-            },
-            success: function(data) {
-                // if(data.code=="cg") {
-                    alert("cg");
-                // }
-            }
-        });
-    }
+     // 问题弃用
+    <%--function x() {--%>
+        <%--$.ajax({--%>
+            <%--type: "POST",--%>
+            <%--url:  "/Vip/update",--%>
+            <%--data: $('#updatevip').serialize(),// 你的formid--%>
+            <%--// dataType:'json',--%>
+            <%--async: false,--%>
+            <%--error: function(request) {--%>
+                <%--alert("Connection error");--%>
+            <%--},--%>
+            <%--success: function(data) {--%>
+                <%--// if(data.code=="cg") {--%>
+                    <%--alert("cg");--%>
+                <%--// }--%>
+            <%--}--%>
+        <%--});--%>
+    <%--}--%>
 
 </script>
-
-<script>
-    layui.use('table', function(){
-        var table = layui.table;
-         var    hid=document.getElementById("hid").value;
-        table.render({
-            elem: '#test'
-            ,url:'/vip/mycum?hid='+hid
-            ,cols: [[
-                 {field:'cname',  title: '课程名', sort: true}
-                ,{field:'cattend',  title: '课程时间'}
-                ,{field:'cprice',title: '价格', templet:function (d) {
-                        return d.cprice+"￥";
-                    }, sort: true}
-                ,{field:'jname',  title: '教练'}
-            ]]
-            ,page: true
-        });
-    });
-</script>
-
-
 
 </body>
 </html>

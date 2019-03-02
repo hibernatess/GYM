@@ -1,6 +1,6 @@
 package com.gym.ssm.service.Impl;
 
-import com.gym.ssm.entity.vip;
+import com.gym.ssm.entity.Vip;
 import com.gym.ssm.service.VipBiz;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,7 +17,7 @@ import java.util.Map;
  * 修改3.1
  */
 @Service
-public class vipBizimpl implements VipBiz {
+public class VipBizimpl implements VipBiz {
     @Autowired
     private VipMapper VipMapper;
 
@@ -27,42 +27,42 @@ public class vipBizimpl implements VipBiz {
      * @return
      */
     @Override
-    public vip vipselectbyhid(Integer hid) {
+    public Vip vipselectbyhid(Integer hid) {
 
         return VipMapper.selectByPrimaryKey(hid);
     }
 
     /**
      * 修改头像
-     * @param vip
+     * @param Vip
      * @return
      */
     @Override
-    public int uploadimg(vip vip) {
+    public String uploadimg(Vip Vip) {
 
-        return VipMapper.uploadimg(vip);
+        return VipMapper.uploadimg(Vip);
     }
 
     /**
      * 修改个人信息
-     * @param vip
+     * @param Vip
      * @return
      */
     @Override
-    public int update(vip vip) {
+    public int update(Vip Vip) {
 
-        return VipMapper.update(vip);
+        return VipMapper.update(Vip);
     }
 
     /**
      * 课程集合
-     * @param vip
+     * @param Vip
      * @return
      */
     @Override
-    public List<Map> listcum(vip vip) {
+    public List<Map> listcum(Vip Vip) {
 
-        return VipMapper.listcum(vip);
+        return VipMapper.listcum(Vip);
     }
 
 

@@ -2,7 +2,7 @@ package com.gym.ssm.sql;
 
 import com.gym.ssm.entity.peng.Admin;
 import com.gym.ssm.entity.peng.Coach;
-import com.gym.ssm.entity.vip;
+import com.gym.ssm.entity.Vip;
 import org.apache.ibatis.jdbc.SQL;
 
 /**
@@ -28,7 +28,7 @@ public class SqlAdmin {
         return s;
     }
 
-    public String selectLogin1(vip vip) {
+    public String selectLogin1(Vip vip) {
         String s = new SQL() {
             {
                 SELECT(" hname,hpwd,jurid");

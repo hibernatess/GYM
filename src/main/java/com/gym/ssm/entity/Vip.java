@@ -8,7 +8,7 @@ import javax.persistence.*;
  * 修改3.1
  */
 @ToString
-public class vip {
+public class Vip {
     /**
      * 会员表：
 

@@ -2,7 +2,7 @@ package com.gym.ssm.mapper;
 
 import com.gym.ssm.entity.peng.Admin;
 import com.gym.ssm.entity.peng.Coach;
-import com.gym.ssm.entity.vip;
+import com.gym.ssm.entity.Vip;
 import com.gym.ssm.sql.SqlAdmin;
 import org.apache.ibatis.annotations.SelectProvider;
 import org.springframework.stereotype.Repository;
@@ -34,7 +34,7 @@ public interface AdminMapper extends Mapper<Admin> {
      * @Param [Vip]
      **/
     @SelectProvider(type = SqlAdmin.class, method = "selectLogin1")
-    vip adminLogin1(vip vip);
+    Vip adminLogin1(Vip vip);
 
 
 }

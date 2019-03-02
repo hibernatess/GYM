@@ -2,7 +2,7 @@ package com.gym.ssm.service.Impl;
 
 import com.gym.ssm.entity.peng.Admin;
 import com.gym.ssm.entity.peng.Coach;
-import com.gym.ssm.entity.vip;
+import com.gym.ssm.entity.Vip;
 import com.gym.ssm.service.LoginService;
 import com.gym.ssm.mapper.AdminMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,8 +31,8 @@ public class LoginServiceImpl implements LoginService {
     }
 
     @Override
-    public vip vipLogin(String name, String pword) {
-        vip vip1 = new vip();
+    public Vip vipLogin(String name, String pword) {
+        Vip vip1 = new Vip();
         vip1.setHname(name);
         vip1.setHpwd(pword);
 

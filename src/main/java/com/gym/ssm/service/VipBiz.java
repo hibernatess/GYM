@@ -1,6 +1,6 @@
 package com.gym.ssm.service;
 
-import com.gym.ssm.entity.vip;
+import com.gym.ssm.entity.Vip;
 
 import java.util.List;
 import java.util.Map;
@@ -14,25 +14,25 @@ public interface VipBiz {
      * @param hid
      * @return
      */
-    public vip vipselectbyhid(Integer hid);
+    public Vip vipselectbyhid(Integer hid);
     /**
      * 修改头像
-     * @param vip
+     * @param Vip
      * @return
      */
-    public int uploadimg(vip vip);
+    public String uploadimg(Vip Vip);
 
     /**
      * 修改会员个人信息
-     * @param vip
+     * @param Vip
      * @return
      */
-    public int update(vip vip);
+    public int update(Vip Vip);
 
     /**
      * 查询课程
-     * @param vip
+     * @param Vip
      * @return
      */
-    public List<Map> listcum(vip vip);
+    public List<Map> listcum(Vip Vip);
 }
