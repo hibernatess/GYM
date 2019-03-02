@@ -64,7 +64,7 @@ public class MemuController {
     public List<Memu> treeNode(String mid) {
         List<Memu> memus = memus(mid);
         List<Memu> memuList = new ArrayList<>();
-        memuList.add(new Memu("0", "0", "memu", "", memus));
+        memuList.add(new Memu("0", "0", "MENU", "", memus));
         return memuList;
     }
 
