@@ -1,11 +1,11 @@
 package com.gym.ssm.sql;
 
-import com.gym.ssm.entity.vip;
+import com.gym.ssm.entity.Vip;
 import org.apache.ibatis.jdbc.SQL;
 import org.springframework.util.StringUtils;
 
 public class SqlVip {
-    public String uploadimg(vip vip){
+    public String uploadimg(Vip vip){
         String sql = new SQL() {
             {
                 UPDATE("vip" );
@@ -17,7 +17,7 @@ public class SqlVip {
     }
 
 
-    public String update(vip vip){
+    public String update(Vip vip){
         String sql = new SQL() {
             {
                 UPDATE("vip" );
@@ -27,7 +27,7 @@ public class SqlVip {
         }.toString();
         return  sql ;
     }
-    public String listcum(vip vip){
+    public String listcum(Vip vip){
         String sql = new SQL() {
             {
                 SELECT ("v.hname,cm.cname,cm.cattend,cm.cprice,ch.jname");

@@ -46,5 +46,15 @@ public class CoachSeriverImpl implements CoachSeriver {
         return coachMapper.listCoach(coach);
     }
 
+    @Override
+    public List<Map<String, Object>> listCoachAndVip(Coach coach) {
+        return coachMapper.listCoachAndVip(coach);
+    }
+
+    @Override
+    public int updateMiddle(int sta, int id) {
+        return coachMapper.updateMiddle(sta,id);
+    }
+
 
 }

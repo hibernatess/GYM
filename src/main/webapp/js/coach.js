@@ -14,17 +14,16 @@ layui.use(['form','table','layer','laydate'] ,function () {
 
     table.render({
         elem: '#test'
-        , url: '../coach/getcoach'
-        , title: '销售机会管理表'
+        , url: '/coach/getcoach'
+        , title: '教练'
         , cols: [[
-            {field: 'jid', title: '编号', width: '6%'}
-            , {field: 'jname', title: '教练姓名', width: '10%'}
-            , {field: 'jsex', title: '性别', width: '13%',templet: '<span>{{d.jsex=="0"? "男":"女"}}</span>'}
-            , {field: 'svalues', title: '教练类型', width: '10%'}
-            , {field: 'jage', title: '年龄', width: '13%'}
-            , {field: 'jaddress', title: '地址', width: '10%'}
+            {field: 'jid', title: '编号', width: '6%', sort:true}
+            , {field: 'jname', title: '教练姓名', width: '12%'}
+            , {field: 'jsex', title: '性别', width: '15%',templet: '<span>{{d.jsex=="0"? "男":"女"}}</span>'}
+            , {field: 'svalues', title: '教练类型', width: '12%'}
+            , {field: 'jage', title: '年龄', width: '15%'}
+            , {field: 'jaddress', title: '地址', width: '12%'}
             , {field: 'cname', title: '课程', width: '10%'}
-            , {field: 'jflag', title: '是否预约', width: '10%',templet: '<span>{{d.jflag=="0"? "否":"是"}}</span>'}
             , {fixed: 'right', title: '操作', toolbar: '#barDemo', width: '18%'}
         ]]
         , page: true

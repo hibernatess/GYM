@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
@@ -47,6 +48,7 @@ public class MemuController {
         }
         return rootMenu;
     }
+
     /**
      * @return java.util.List<com.gym.ssm.entity.peng.Memu>
      * @Author peng
@@ -57,7 +59,6 @@ public class MemuController {
     @RequestMapping("/memu")
     @ResponseBody
     public List<Memu> treeNode(String mid) {
-
         List<Memu> memus = memus(mid);
         List<Memu> memuList = new ArrayList<>();
         memuList.add(new Memu("0", "0", "memu", "", memus));
@@ -72,7 +73,7 @@ public class MemuController {
      * @Param [request]
      **/
     @RequestMapping("/out")
-    public String outLogin(HttpServletRequest request) {
+    public String outLogin(HttpServletRequest request, HttpServletResponse response) {
         HttpSession session = request.getSession();
         request.getSession().invalidate();
         return "login";

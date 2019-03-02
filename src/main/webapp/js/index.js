@@ -5,7 +5,7 @@ var $ = layui.jquery;
 
 function getTreeNode() {
     var mid = $("#memu").val();
-    $.getJSON("/GYM03/memu", {mid: mid}, function (data) {
+    $.getJSON("/memu", {mid: mid}, function (data) {
 
         // console.log(data);
         layui.tree({
@@ -13,7 +13,8 @@ function getTreeNode() {
             , skin: 'sidebar'
             , nodes: data
             , click: function (node) {//点击tree菜单项的时候
-                settab(node.id, node.name, node.url);
+                falg_Jsp_Ajax(element, node.url, node.name, node.id)
+                // settab(node.id, node.name, node.url);
             }
 
         });
@@ -31,17 +32,35 @@ function settab(id, name, url) {
 
         } else {
             if (url != null && url.length > 0) {//判断是否需要新增选项卡;
-                element.tabAdd('tabs', {
-                    title: name,
-                    content: '<iframe scrolling="yes" frameborder="0"    width="99%" height="80%" src="/GYM03/go?name=' + url + '" style="color: #009688 "></iframe>'//支持传入html//支持传入html
-                    ,
-                    id: id
-                });
-                element.tabChange('tabs', id);//切换到已有的选项卡
+
+
             }
         }
     })
 }
+
+function falg_Jsp_Ajax(element, url, name, id) {
+    let split = url.split(".");
+    alert(split.length);
+    if (split.length > 1) {
+        element.tabAdd('tabs', {
+            title: name,
+            content: '<iframe scrolling="yes" frameborder="0"    width="99%" height="80%" src="go?name=' + split[0] + '" style="color: #009688 "></iframe>'//支持传入html//支持传入html
+            ,
+            id: id
+
+        });
+    } else {
+        element.tabAdd('tabs', {
+            title: name,
+            content: '<iframe scrolling="yes" frameborder="0"    width="99%" height="80%" src="' + split[0] + '" style="color: #009688 "></iframe>'//支持传入html//支持传入html
+            ,
+            id: id
+        });
+    }
+    element.tabChange('tabs', id);//切换到已有的选项卡
+}
+
 
 // /**
 //  *锁屏的方法

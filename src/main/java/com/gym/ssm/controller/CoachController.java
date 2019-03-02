@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import tk.mybatis.mapper.entity.Example;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import java.util.HashMap;
 import java.util.List;
@@ -107,11 +108,75 @@ public class CoachController {
         return false;
     }
 
+
+    /**
+    * 查询全部教练
+    * @author      hhh
+    * @return
+    * @exception
+    * @date        2019/3/1 9:54
+    */
     @RequestMapping("/getCoachs")
     @ResponseBody
     public List<Coach> ListCoach() {
         return coachMapper.selectAll();
     }
+
+
+    /**
+    * 客户预约教练的信息
+    * @author      hhh
+    * @return
+    * @exception
+    * @date        2019/3/1 9:57
+    */
+    @RequestMapping("/getcoachandvip")
+    @ResponseBody
+    public Map<String,Object> listCoachAndVip(Coach coach,HttpServletRequest request){
+        PageBean pageBean=new PageBean();
+        pageBean.setPageBean(request);
+        PageHelper.startPage(pageBean.getPage(), pageBean.getRows());
+        List<Map<String, Object>> list = coachSeriver.listCoachAndVip(coach);
+        PageInfo pageInfo=new PageInfo(list);
+        Map<String,Object> map=new HashMap<>();
+        map.put("code", 0);
+        map.put("msg", "");
+        map.put("count", pageInfo.getTotal());
+        map.put("data", pageInfo.getList());
+        return map;
+    }
+
+
+
+    /**
+    * 跳转至教练详情页面
+    * @author      hhh
+    * @return
+    * @exception
+    * @date        2019/3/1 10:45
+    */
+    @RequestMapping("/coachdetails")
+    public String coachByid(HttpServletRequest request){
+        return "coachdetails";
+    }
+
+    /**
+    * 修改教练和会员中间表的状态
+    * @author      hhh
+    * @return
+    * @exception
+    * @date        2019/3/1 20:22
+    */
+    @RequestMapping("/updatemiddle")
+    @ResponseBody
+    public boolean updateMiddle(int sta,int id){
+        if(coachSeriver.updateMiddle(sta,id)>0){
+            return true;
+        }
+        return false;
+    }
+
+
 
 
 }

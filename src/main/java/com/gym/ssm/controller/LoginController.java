@@ -3,7 +3,7 @@ package com.gym.ssm.controller;
 import com.gym.ssm.entity.peng.Coach;
 import com.gym.ssm.entity.peng.Admin;
 import com.gym.ssm.entity.peng.Login;
-import com.gym.ssm.entity.vip;
+import com.gym.ssm.entity.Vip;
 import com.gym.ssm.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -34,26 +34,30 @@ public class LoginController {
      **/
     @RequestMapping("/login")
     @ResponseBody
-    public boolean login(String name, String pword, HttpServletRequest argo) {
-        vip vip1 = loginService.vipLogin(name, pword);
+    public boolean login(String name, String pword, HttpServletRequest argo) throws CloneNotSupportedException {
+        Vip vip1 = loginService.vipLogin(name, pword);
         Login login = null;
         HttpSession session = argo.getSession();
         Boolean flag = true;
-        if (vip1 == null) {
+
+
+        if (isNull(vip1)) {
             Coach coach = loginService.coachLogin(name, pword);
-            if (coach == null) {
+            if (isNull(coach)) {
                 Admin admin = loginService.adminLogin(name, pword);
-                if (admin == null) {
+                if (isNull(admin)) {
                     flag = false;
                 } else {
                     login = setLogin(admin.getAname(), admin.getApword(), admin.getAmid(), admin.getAid());
                 }
             } else {
-                login = setLogin(coach.getJname(), coach.getJpwd(), coach.getJurid(), coach.getCid());
+                login = setLogin(coach.getJname(), coach.getJpwd(), coach.getJurid(), coach.getJid());
             }
         } else {
+            System.out.println(vip1);
             login = setLogin(vip1.getHname(), vip1.getHpwd(), vip1.getJurid(), vip1.getHid());
         }
+        System.out.println(login);
         session.setAttribute("login", login);
         return flag;
     }
@@ -69,5 +73,11 @@ public class LoginController {
         Login l = new Login(name, pword, mid, aid);
         return l;
     }
+
+
+    public static boolean isNull(Object obj) {
+        return obj == null;
+    }
+
 
 }

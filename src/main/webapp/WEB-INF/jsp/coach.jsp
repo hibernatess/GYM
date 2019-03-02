@@ -9,11 +9,11 @@
 <html>
 <head>
     <title>Title</title>
-    <script type="text/javascript" src="../js/vue.js"></script>
-    <script type="text/javascript" src="../js/jquery-3.3.1.js"></script>
-    <script type="text/javascript" src="../layui/layui.js"></script>
-    <link rel="stylesheet" href="../layui/css/layui.css" media="all">
-    <script type="text/javascript" src="../js/coach.js"></script>
+    <script type="text/javascript" src="../../js/vue.js"></script>
+    <script type="text/javascript" src="../../js/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="../../layui/layui.js"></script>
+    <link rel="stylesheet" href="../../layui/css/layui.css" media="all">
+    <script type="text/javascript" src="../../js/coach.js"></script>
 </head>
 <body>
 <span id="app">
