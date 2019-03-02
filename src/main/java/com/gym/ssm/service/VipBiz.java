@@ -20,7 +20,7 @@ public interface VipBiz {
      * @param Vip
      * @return
      */
-    public String uploadimg(Vip Vip);
+    public int uploadimg(Vip Vip);
 
     /**
      * 修改会员个人信息

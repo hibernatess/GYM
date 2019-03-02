@@ -13,8 +13,8 @@ function getTreeNode() {
             , skin: 'sidebar'
             , nodes: data
             , click: function (node) {//点击tree菜单项的时候
-                falg_Jsp_Ajax(element, node.url, node.name, node.id)
-                // settab(node.id, node.name, node.url);
+                                      //
+                settab(node.id, node.name, node.url);
             }
 
         });
@@ -26,13 +26,11 @@ function settab(id, name, url) {
         var $ = layui.jquery
             , element = layui.element; //Tab的切换功能，切换事件监听等，需要依赖element模块
         var exist = $("li[lay-id='" + id + "']").length;//判断是不是用重复的选项卡
-
         if (exist > 0) {
             element.tabChange('tabs', id);//切换到已有的选项卡
-
         } else {
             if (url != null && url.length > 0) {//判断是否需要新增选项卡;
-
+                falg_Jsp_Ajax(element, url, name, id)
 
             }
         }
@@ -41,7 +39,6 @@ function settab(id, name, url) {
 
 function falg_Jsp_Ajax(element, url, name, id) {
     let split = url.split(".");
-    alert(split.length);
     if (split.length > 1) {
         element.tabAdd('tabs', {
             title: name,

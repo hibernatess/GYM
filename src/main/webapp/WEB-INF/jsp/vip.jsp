@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="../../layui/css/layui.css">
     <script src="../../layui/layui.js"></script>
     <script src="../../js/jquery-3.3.1.js"></script>
-    <script src="../../js/Vip.js"></script>
+    <script src="../../js/vip.js"></script>
 
 
 <style>
@@ -41,7 +41,7 @@
                         <legend style="margin-left:35%;color: #eb7350;font-family: 华文行楷">个人资料</legend>
                     </fieldset>
                     <%--头像--%>
-                    <form id="upimg" action="${pageContext.request.contextPath}/Vip/upload" enctype="multipart/form-data" method="post">
+                    <form id="upimg" action="${pageContext.request.contextPath}/vip/upload" enctype="multipart/form-data" method="post">
                         <input type="file" id="btn_file" style="display: none" onchange="upload(this)" name="xxx" accept="image/*"/>
                         <input type="hidden" id="hid" name="hid"value="${vipselectbyhid.hid}">
                         <div class="layui-inline" style="margin-left:35%">
@@ -87,7 +87,7 @@
                         <legend style="margin-left: 42%"><h3>我的信息</h3></legend>
                     </fieldset>
 
-                    <form id="updatevip" class="layui-form" action="/Vip/update" lay-filter="example" method="post">
+                    <form id="updatevip" class="layui-form" action="/vip/update" lay-filter="example" method="post">
                         <input type="hidden" value="${vipselectbyhid.hid}" name="hid">
                         <div class="layui-form-item">
 

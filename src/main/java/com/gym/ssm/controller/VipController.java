@@ -47,7 +47,7 @@ public class VipController {
         System.out.println("会员id"+hid);
         Vip vipselectbyhid = VipBiz.vipselectbyhid(hid);
         request.setAttribute("vipselectbyhid",vipselectbyhid);
-        return "WEB-INF/jsp/vip";
+        return "vip";
     }
 
     /**
@@ -68,7 +68,7 @@ public class VipController {
         v.setImg(xxx.getOriginalFilename());
         VipBiz.uploadimg(v);
         System.out.println("upimg");
-        return "forward:/Vip/Vip";
+        return "forward:/vip/vip";
     }
 
     /**
@@ -81,7 +81,7 @@ public class VipController {
 //    @ResponseBody
     public String update(HttpServletRequest request, Vip Vip){
         VipBiz.update(Vip);
-        return "forward:/Vip/Vip";
+        return "forward:/vip/vip";
     }
 
     /**

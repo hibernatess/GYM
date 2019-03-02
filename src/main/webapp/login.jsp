@@ -38,7 +38,7 @@
         $ = layui.jquery;
         //登录按钮事件
         form.on("submit(login)", function (data) {
-            $.getJSON("/GYM03/login", {
+            $.getJSON("/login", {
                 name: data.field.username,
                 pword: data.field.password
             }, function (data) {

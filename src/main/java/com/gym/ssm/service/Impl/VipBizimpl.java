@@ -38,7 +38,7 @@ public class VipBizimpl implements VipBiz {
      * @return
      */
     @Override
-    public String uploadimg(Vip Vip) {
+    public int uploadimg(Vip Vip) {
 
         return VipMapper.uploadimg(Vip);
     }

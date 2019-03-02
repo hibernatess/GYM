@@ -31,7 +31,7 @@ public class SqlAdmin {
     public String selectLogin1(Vip vip) {
         String s = new SQL() {
             {
-                SELECT(" hname,hpwd,jurid");
+                SELECT(" hname,hpwd,jurid,hid");
                 //表名
                 FROM(" vip ");
                 WHERE(" hname='" + vip.getHname() + "' and  hpwd='" + vip.getHpwd() + "'");
@@ -51,7 +51,7 @@ public class SqlAdmin {
     public String selectCoach1(Coach coach) {
         String s = new SQL() {
             {
-                SELECT(" jname,jpwd,jurid ");
+                SELECT(" jname,jpwd,jurid,jid ");
                 //表名
                 FROM(" coach ");
                 WHERE(" jname='" + coach.getJname() + "' and  jpwd='" + coach.getJpwd() + "'");
