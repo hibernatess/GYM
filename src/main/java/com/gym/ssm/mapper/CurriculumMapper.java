@@ -16,7 +16,9 @@ import tk.mybatis.mapper.common.Mapper;
  * @description:
  * @author: hw
  * @create: 2019-02-25 20:03
- **/
+ **//*
+3.2
+ */
 @Repository
 public interface CurriculumMapper extends Mapper<Curriculum> {
     /**

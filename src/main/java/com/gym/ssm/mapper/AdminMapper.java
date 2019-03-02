@@ -7,7 +7,9 @@ import com.gym.ssm.sql.SqlAdmin;
 import org.apache.ibatis.annotations.SelectProvider;
 import org.springframework.stereotype.Repository;
 import tk.mybatis.mapper.common.Mapper;
-
+/*
+3.2
+ */
 @Repository
 public interface AdminMapper extends Mapper<Admin> {
 

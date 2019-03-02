@@ -16,6 +16,9 @@ import org.springframework.stereotype.Service;
  * @Date:2019/2/25 19:34
  * @Version:1.0
  */
+/*
+3.2
+ */
 @Service
 public class LoginServiceImpl implements LoginService {
     @Autowired
@@ -56,7 +59,7 @@ public class LoginServiceImpl implements LoginService {
 //        Coach coach=new Coach();
 //        coach.setJname(name);
 //
-//            Vip vip1 = VipMapper.selectOne(vip);
+//            Vip vip1 = VipMapper.java.selectOne(vip);
 //        if (vip1.equals(null)) {
 //
 //        }else{

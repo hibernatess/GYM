@@ -16,6 +16,9 @@ import java.util.Map;
  * @create 2019-02-26-21:16
  * 修改3.1
  */
+/*
+3.2
+ */
 @Service
 public class VipBizimpl implements VipBiz {
     @Autowired

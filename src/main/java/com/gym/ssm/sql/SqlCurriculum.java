@@ -14,6 +14,9 @@ import java.util.Set;
  * @author: hw
  * @create: 2019-02-26 08:55
  **/
+/*
+3.2
+ */
 public class SqlCurriculum {
     public String selectCurriculum(Curriculum curriculum){
         String s = new SQL() {

@@ -12,6 +12,9 @@ import java.util.Map;
  * @company
  * @create 2019-03-01-18:26
  */
+/*
+3.2
+ */
 public interface SelectcumBiz {
     public List<Map> listcum(Curriculum curriculum);
 }

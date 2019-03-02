@@ -10,7 +10,9 @@ import tk.mybatis.mapper.common.Mapper;
 
 import java.util.List;
 import java.util.Map;
-
+/*
+3.2
+ */
 @Repository
 public interface CoachMapper extends Mapper<Coach> {
 

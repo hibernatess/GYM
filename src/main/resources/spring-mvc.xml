@@ -30,7 +30,7 @@
     <!--4.配置资源视图解析-->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <!--前缀		这里是活的,你根据你的实际情况改动-->
-        <property name="prefix" value="/"/>
+        <property name="prefix" value="/WEB-INF/jsp/"/>
         <!--后缀-->
         <property name="suffix" value=".jsp"/>
     </bean>

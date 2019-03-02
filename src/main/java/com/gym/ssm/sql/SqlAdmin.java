@@ -13,6 +13,9 @@ import org.apache.ibatis.jdbc.SQL;
  * @Date:2019/2/26 18:30
  * @Version:1.0
  */
+/*
+3.2
+ */
 public class SqlAdmin {
 
 

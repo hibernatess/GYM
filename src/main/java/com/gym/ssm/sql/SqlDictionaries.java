@@ -10,6 +10,9 @@ import org.springframework.util.StringUtils;
  * @Describe
  * @Date 2019/2/26 0026 19:10
  */
+/*
+3.2
+ */
 public class SqlDictionaries {
     /**
      * @Description: 查询基础数据的语句

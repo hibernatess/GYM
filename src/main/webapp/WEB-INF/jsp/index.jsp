@@ -51,7 +51,7 @@
             <li class="layui-nav-item">
                 <a href="javascript:lockScreen();"><i class="fa fa-lock"></i>锁屏</a>
             </li>
-            <li class="layui-nav-item"><a href="/GYM03/out">退出系统</a></li>
+            <li class="layui-nav-item"><a href="/out">退出系统</a></li>
         </ul>
     </div>
 

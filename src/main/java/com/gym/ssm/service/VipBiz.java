@@ -5,8 +5,8 @@ import com.gym.ssm.entity.Vip;
 import java.util.List;
 import java.util.Map;
 
-/**
- * 修改3.1
+/*
+3.2
  */
 public interface VipBiz {
     /**

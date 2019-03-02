@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import tk.mybatis.mapper.common.Mapper;
 
 import java.util.List;
-
+/*
+3.2
+ */
 @Repository
 public interface MemuMapper extends Mapper<Memu> {
 

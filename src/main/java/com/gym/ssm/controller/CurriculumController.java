@@ -28,6 +28,9 @@ import javax.servlet.http.HttpServletRequest;
  * @author: hw
  * @create: 2019-02-25 20:40
  **/
+/*
+3.2
+ */
 @Controller
 @RequestMapping("/curriculum")
 public class CurriculumController {
