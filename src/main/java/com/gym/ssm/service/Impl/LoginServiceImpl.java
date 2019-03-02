@@ -56,7 +56,7 @@ public class LoginServiceImpl implements LoginService {
 //        Coach coach=new Coach();
 //        coach.setJname(name);
 //
-//            Vip vip1 = vipMapper.selectOne(vip);
+//            Vip vip1 = VipMapper.selectOne(vip);
 //        if (vip1.equals(null)) {
 //
 //        }else{
