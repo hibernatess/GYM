@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 修改3.1
+ * 修改3.2
  */
 @Repository
 public interface VipMapper extends Mapper<Vip> {
@@ -22,7 +22,7 @@ public interface VipMapper extends Mapper<Vip> {
      * @return
      */
     @UpdateProvider(type = SqlVip.class,method = "uploadimg")
-    public String uploadimg(Vip vip);
+    public int uploadimg(Vip vip);
 
     /**
      * 修改会员信息
