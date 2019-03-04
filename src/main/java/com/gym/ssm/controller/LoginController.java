@@ -22,7 +22,7 @@ import javax.servlet.http.HttpSession;
  * @Version:1.0
  */
 /*
-3.2
+3.4
  */
 @Controller
 public class LoginController {
