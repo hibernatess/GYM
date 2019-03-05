@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: Administrator
-  Date: 2019/3/4
-  Time: 16:18
+  Date: 2019/3/5
+  Time: 14:15
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -51,31 +51,11 @@
             <br>
             <label class="layui-form-label">类型</label>
             <div class="layui-input-block">
-                <select class="layui-select" id="sid" name="sid">
-                    <option value="1">
-                        一级
-                    </option>
-                    <option value="2">
-                        二级
-                    </option>
-                    <option value="3">
-                        三级
-                    </option>
-                </select>
+                <input type="text" class="layui-input" id="sid" name=sid
+                >
             </div>
             <br>
-            <label class="layui-form-label"> 是否损坏</label>
-            <div class="layui-input-block">
-                <select class="layui-select" id="qdamage" name="qdamage">
-                    <option value="1">
-                        是
-                    </option>
-                    <option value="0">
-                        否
-                    </option>
-                </select>
-            </div>
-            <br>
+
             <label class="layui-form-label"> 器材价格</label>
             <div class="layui-input-block">
                 <input type="text" class="layui-input" id="qprice"
@@ -106,6 +86,6 @@
         });
     });
 </script>
-<script src="../../js/equipment.js"></script>
+<script src="../../js/damage.js"></script>
 </body>
 </html>

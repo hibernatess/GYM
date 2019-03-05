@@ -7,7 +7,7 @@ layui.use(['table', 'form'],
         table.render({
             elem: '#LAY_table_user',
             // height: 300,
-            url: '/equipment/Elist' // 数据接口
+            url: '/damage/Dlist' // 数据接口
             ,
             // defaultToolbar : [ 'filter', 'print', 'exports' ],
             page: true // 开启分页
@@ -17,7 +17,7 @@ layui.use(['table', 'form'],
             cellMinWidth: 80,
             cols: [[
                 {
-                    field: 'qid',
+                    field: 'qhid',
                     title: '编号',
                     sort: true,
                     // width: 80,
@@ -25,37 +25,13 @@ layui.use(['table', 'form'],
                     field: 'qname',
                     title: '器材名字',
                     // width: 80,
-                }, {
-                    field: 'sid',
-                    title: '类型',templet:function(a){
-                        if (a.sid== 1){
-                            return"一级"
-                        }else if(a.sid==2){
-                            return "二级"
-                        }else{
-                            return "三级"
-                        }
-                    }
-                    // width: 80,
-
-                }, {
-                    field: 'qprice',
-                    title: '价格',
+                },{
+                    field: 'qhprice',
+                    title: '赔偿价格',
                     // width: 180,
                 },{
-                    field: 'qsum',
-                    title: '数量',
-                }, {
-                    field: 'qdamage',
-                    title: '是否损坏', templet: function (d) {
-                        if (d.qdamage == 1) {
-                            return "是"
-                        } else {
-                            return "否"
-                        }
-
-                    }
-                    // width: 180,
+                    field: 'qhremark',
+                    title: '损坏原因',
                 }, {
                     fixed: 'right',
                     title: '操作',
@@ -100,7 +76,7 @@ layui.use(['table', 'form'],
                         $.getJSON("/equipment/add", {
                             qname: $('#name').val(),//器材名字
                             sid: $('#sid').val(),//类型
-                            qprice: $('#qprice').val(),//价格
+                            qprice: $('#qprice').val(),//教练id
                             qdamage: $('#qdamage').val(),//是否损坏
                             qsum: $('#qsum').val(),//器材数量
                         }, function (data) {
@@ -206,21 +182,21 @@ layui.use(['table', 'form'],
     });
 
 /*
-下拉框加载
+下拉框教练加载
  */
-// function coach() {
-//     $.ajaxSettings.async = false;
-//     $.getJSON('equipment/Elist', {}, function (data) {
-//         var html = "";
-//         // 返回处理的方法
-//         $.each(data, function (index, item) {
-//             html += "<option value=" + item.qid + ">" + item.qname
-//                 + "</option>";
-//         });
-//         $('#sid').html(html);
-//     })
-// }
-//
-// $(function () {
-//     coach();
-// })
+function coach() {
+    $.ajaxSettings.async = false;
+    $.getJSON('equipment/Elist', {}, function (data) {
+        var html = "";
+        // 返回处理的方法
+        $.each(data, function (index, item) {
+            html += "<option value=" + item.qid + ">" + item.qname
+                + "</option>";
+        });
+        $('#sid').html(html);
+    })
+}
+
+$(function () {
+    coach();
+})
