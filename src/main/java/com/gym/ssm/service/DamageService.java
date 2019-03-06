@@ -4,6 +4,7 @@ import com.gym.ssm.entity.Damage;
 import com.gym.ssm.entity.Equipment;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author小强
@@ -43,7 +44,7 @@ public interface DamageService {
      * @Author: xxs
      * @Date: 2019/2/25
      */
-    public List<Damage> GetDamage(Damage damage);
+    public List<Map<String,Object>> GetDamage(Damage damage);
 
 
     public List<Equipment> SelectQname();

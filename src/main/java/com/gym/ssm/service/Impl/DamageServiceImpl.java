@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author小强
@@ -22,7 +23,7 @@ public class DamageServiceImpl implements DamageService {
 
     @Override
     public int PostDamage(Damage damage) {
-        return DMapper.PostDamage(damage);
+        return DMapper.insert(damage);
     }
 
     @Override
@@ -36,7 +37,7 @@ public class DamageServiceImpl implements DamageService {
     }
 
     @Override
-    public List<Damage> GetDamage(Damage damage) {
+    public List<Map<String,Object>> GetDamage(Damage damage) {
         return DMapper.SelectDamage(damage);
     }
 

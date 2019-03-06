@@ -15,7 +15,7 @@ public class SqlDamage {
     public String SelectDamage(Damage d) {
 
         StringBuffer sb = new StringBuffer();
-        sb.append("SELECT a.qhid,qname,a.qhprice,a.qhremark from damage a ,equipment b  where a.qid=b.qid ");
+        sb.append("SELECT a.qhid,b.qname,a.qhprice,a.qhremark from damage a ,equipment b  where a.qid=b.qid ");
         return sb.toString();
     }
 
@@ -32,13 +32,16 @@ public class SqlDamage {
 
     public String AddDamage(Damage d) {
         StringBuffer sb = new StringBuffer();
-        sb.append("INSERT INTO damage ( qid,qhprice,qhremark ) VALUES( ?,?,? ) ");
+        sb.append("INSERT INTO damage ( qhid,qid,qhprice,qhremark ) VALUES( ?,?,?,? ) ");
+         UpdateDamage(d);
         return sb.toString();
     }
 
     public String UpdateDamage(Damage d) {
         StringBuffer sb = new StringBuffer();
-        sb.append("UPDATE damage SET qid = ?,qhprice = ?,qhremark = ? WHERE qhid = ?  ");
+        if(d.getQid()!=null&&d.getQid()!=0){
+            sb.append("UPDATE   equipment SET qsum=qsum-1  where qid =  "+d.getQid());
+        }
         return sb.toString();
     }
 

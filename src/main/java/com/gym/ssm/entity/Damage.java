@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Table(name = "damage")
 public class Damage {
-    private  String qname;
+
     /**
      * Æ÷²ÄËð»µ£º
 
@@ -118,11 +118,4 @@ public class Damage {
         this.qhremark = qhremark == null ? null : qhremark.trim();
     }
 
-    public String getQname() {
-        return qname;
-    }
-
-    public void setQname(String qname) {
-        this.qname = qname;
-    }
 }

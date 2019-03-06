@@ -45,18 +45,7 @@ layui.use(['table', 'form'],
                 },{
                     field: 'qsum',
                     title: '数量',
-                }, {
-                    field: 'qdamage',
-                    title: '是否损坏', templet: function (d) {
-                        if (d.qdamage == 1) {
-                            return "是"
-                        } else {
-                            return "否"
-                        }
-
-                    }
-                    // width: 180,
-                }, {
+                },{
                     fixed: 'right',
                     title: '操作',
                     align: 'center',
@@ -106,6 +95,44 @@ layui.use(['table', 'form'],
                         }, function (data) {
                             if (data) {
                                 layer.alert('添加成功', {icon: 1, title: '提示'}, function (i) {
+                                    layer.close(i);
+                                    layer.close(index);//关闭弹出层
+                                    $("#users")[0].reset()//重置form
+                                })
+                                table.reload('testReload', {//重载表格
+                                    page: {
+                                        curr: 1
+                                        // 重新从第 1 页开始
+                                    }
+                                })
+                            } else {
+                                layer.msg('添加失败')
+                            }
+                        })
+
+                    }, cancel: function (index, layero) {
+                        $("#users")[0].reset()//重置form
+                        layer.close(index)
+                    }
+                });
+            }, damage: function () { //添加
+                layer.open({
+                    type: 1,
+                    title: '损坏',
+                    maxmin: true,
+                    shadeClose: true, //点击遮罩关闭层
+                    area: ['80%', '80%'],
+                    content: $('#box2'),
+                    btn: ['确定', '取消'],
+                    yes: function (index, layero) {//确定执行函数
+                        //执行添加方法
+                        $.getJSON("/damage/add", {
+                            qid: $('#did').val(),//器材名字
+                            qhprice: $('#qhprice').val(),//教练id
+                            qhremark: $('#qhremark').val(),//是否损坏
+                        }, function (data) {
+                            if (data) {
+                                layer.alert('OK', {icon: 1, title: '提示'}, function (i) {
                                     layer.close(i);
                                     layer.close(index);//关闭弹出层
                                     $("#users")[0].reset()//重置form
@@ -208,19 +235,21 @@ layui.use(['table', 'form'],
 /*
 下拉框加载
  */
-// function coach() {
-//     $.ajaxSettings.async = false;
-//     $.getJSON('equipment/Elist', {}, function (data) {
-//         var html = "";
-//         // 返回处理的方法
-//         $.each(data, function (index, item) {
-//             html += "<option value=" + item.qid + ">" + item.qname
-//                 + "</option>";
-//         });
-//         $('#sid').html(html);
-//     })
-// }
-//
-// $(function () {
-//     coach();
-// })
+function coach() {
+    $.ajaxSettings.async = false;
+    $.getJSON('damage/qname', {}, function (data) {
+        var html = "";
+        // 返回处理的方法
+        $.each(data, function (index, item) {
+            // if(!data.contains(item)){
+            html += "<option value=" + item.qid + ">" + item.qname
+                + "</option>";
+            //}
+        });
+        $('#did').html(html);
+    })
+}
+
+$(function () {
+    coach();
+})

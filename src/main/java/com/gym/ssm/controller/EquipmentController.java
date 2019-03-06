@@ -5,6 +5,7 @@ import com.github.pagehelper.PageInfo;
 import com.gym.ssm.base.PageBean;
 import com.gym.ssm.entity.Dictionaries;
 import com.gym.ssm.entity.Equipment;
+import com.gym.ssm.service.DamageService;
 import com.gym.ssm.service.EquipmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -27,6 +28,7 @@ import java.util.Map;
 public class EquipmentController {
     @Autowired
     EquipmentService EService;
+
 
     @RequestMapping("/Elist")
     @ResponseBody

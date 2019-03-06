@@ -32,7 +32,7 @@ public class DamageController {
         PageBean bean = new PageBean();
         bean.setPageBean(request);
         PageHelper.startPage(bean.getPage(), bean.getRows());
-        List<Damage> maps = damageService.GetDamage(d);
+        List<Map<String, Object>> maps = damageService.GetDamage(d);
         PageInfo pageInfo = new PageInfo(maps);
         Map<String, Object> map = new HashMap<>();
         map.put("code", 0);

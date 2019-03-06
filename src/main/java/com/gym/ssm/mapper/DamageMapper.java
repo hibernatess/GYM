@@ -9,11 +9,12 @@ import org.springframework.stereotype.Repository;
 import tk.mybatis.mapper.common.Mapper;
 
 import java.util.List;
+import java.util.Map;
 
 @Repository
 public interface DamageMapper extends Mapper<Damage> {
     @SelectProvider(type = SqlDamage.class,method = "SelectDamage")
-    public List<Damage> SelectDamage(Damage damage);
+    public List<Map<String,Object>> SelectDamage(Damage damage);
     @SelectProvider(type = SqlDamage.class,method = "SelectQname")
     public List<Equipment> SelectQname();
     @SelectProvider(type = SqlDamage.class,method = "AddDamage")
