@@ -31,6 +31,13 @@ import java.util.Map;
 public class SelectcumController {
     @Autowired
     private SelectcumBiz selectcumBiz;
+
+    /**
+     * 课程表分页
+     * @param request
+     * @param curriculum
+     * @return
+     */
     @RequestMapping("/selectcum")
     @ResponseBody
     public Map<Object,Object> selectcum(HttpServletRequest request, Curriculum curriculum){
@@ -48,11 +55,11 @@ public class SelectcumController {
         return map;
     }
 
-
-@RequestMapping("/toselectcum")
-    public String toselectcum(){
-    System.out.println("toselectcum");
-        return "WEB-INF/jsp/selectcum";
-}
+//
+//@RequestMapping("/toselectcum")
+//    public String toselectcum(){
+//    System.out.println("toselectcum");
+//        return "WEB-INF/jsp/selectcum";
+//}
 
 }

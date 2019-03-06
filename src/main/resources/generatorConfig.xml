@@ -10,7 +10,7 @@
 
     <properties resource="db.properties"/>
 
-    <classPathEntry location="E:\jar_lib\mysql\mysql-connector-java\5.1.47\mysql-connector-java-5.1.47.jar"/>
+    <classPathEntry location="D:\Maven\maven01\mysql\mysql-connector-java\5.1.44\mysql-connector-java-5.1.44.jar"/>
     <context id="Tables" targetRuntime="MyBatis3">
         <!--去除注释 -->
         <!--<commentGenerator>
@@ -53,18 +53,9 @@
 
 
         <!--对应数据库表 mysql可以加入主键自增 字段命名 忽略某字段等 -->
-        <table tableName="admin" domainObjectName="Admin" enableCountByExample="false" enableUpdateByExample="false"
-               enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/>
-        <table tableName="memu" domainObjectName="Memu" enableCountByExample="false" enableUpdateByExample="false"
-               enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/>
-        <table tableName="vip" domainObjectName="Vip" enableCountByExample="false" enableUpdateByExample="false"
-               enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/>
-        <table tableName="coach" domainObjectName="Coach" enableCountByExample="false" enableUpdateByExample="false"
+        <table tableName="damage" domainObjectName="Damage" enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/>
 
-
-        <table tableName="coach" domainObjectName="coach" enableCountByExample="false" enableUpdateByExample="false"
-               enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/>
 
     </context>
 </generatorConfiguration>
