@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gym.ssm.mapper.DamageMapper">
+  <resultMap id="BaseResultMap" type="com.gym.ssm.entity.Damage">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="qhid" jdbcType="INTEGER" property="qhid" />
+    <result column="qid" jdbcType="INTEGER" property="qid" />
+    <result column="qhprice" jdbcType="REAL" property="qhprice" />
+    <result column="qhremark" jdbcType="VARCHAR" property="qhremark" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    qhid, qid, qhprice, qhremark
+  </sql>
+</mapper>
