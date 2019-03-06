@@ -1,6 +1,7 @@
 package com.gym.ssm.sql;
 
 import com.gym.ssm.entity.Vip;
+import net.sf.jsqlparser.statement.select.FromItem;
 import org.apache.ibatis.jdbc.SQL;
 import org.springframework.util.StringUtils;
 
@@ -36,5 +37,18 @@ public class SqlVip {
             }
         }.toString();
         return  sql ;
+    }
+    public  String listvip(Vip vip){
+        String sql=new SQL(){
+            {
+                SELECT("d.svalues,hid,hname,hphone,hsex,hage,haddress,hregister,realname");
+                FROM("vip v ");
+                INNER_JOIN("dictionaries d on v.sid=d.sid");
+                if(!StringUtils.isEmpty(vip.getHname())){
+                WHERE(" hname like '%"+vip.getHname()+"%'");
+                }
+            }
+        }.toString();
+        return sql;
     }
 }

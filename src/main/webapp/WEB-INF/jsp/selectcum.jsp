@@ -47,23 +47,22 @@
 
 
 
-<div style="width: 600px;height: 200px;display: none " id="secoach" >
+<div style="width: 600px;height: 300px;display: none " id="secoach" >
     <form class="layui-form" action="" lay-filter="example">
+
         <div class="layui-form-item">
 
             <div class="layui-inline">
             <label class="layui-form-label"><h3>课&nbsp;程&nbsp;名</h3></label>
             <div class="layui-input-inline">
-                <input   name="cname" readonly style="width: 150px;" class="layui-input">
+                <input   name="cname" readonly  class="layui-input">
             </div>
             </div>
 
             <div class="layui-inline">
             <label class="layui-form-label"><h3>选&nbsp;择&nbsp;教&nbsp;练&nbsp;</h3></label>
             <div class="layui-input-block">
-                <h3>
-                    <select lay-verify="required"  id="scoach" name="scoach">  </select>
-                </h3>
+            <h3><select lay-verify="required"  id="scoach" name="scoach"></select></h3>
             </div>
             </div>
 

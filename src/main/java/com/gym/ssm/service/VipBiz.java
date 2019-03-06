@@ -35,4 +35,18 @@ public interface VipBiz {
      * @return
      */
     public List<Map> listcum(Vip Vip);
+
+    /**
+     * 会员信息
+     * @param vip
+     * @return
+     */
+    public List<Map> listvip(Vip vip);
+
+    /**
+     * 注销会员
+     * @param vip
+     * @return
+     */
+    public int delvip(Vip vip);
 }
