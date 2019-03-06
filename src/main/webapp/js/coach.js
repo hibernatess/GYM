@@ -176,7 +176,6 @@ layui.use(['form','table','layer','laydate'] ,function () {
                         jflag:0,
                         jurid:1
                     },function (data) {
-                        layer.close(index)
                         table.reload('testReload', {//重载表格
                             page: {
                                 curr: 1
@@ -184,6 +183,8 @@ layui.use(['form','table','layer','laydate'] ,function () {
                             }
                         })
                     })
+                    $("#coachform")[0].reset()
+                    layer.close(index)
                 },btn2:function (index, layero) {
                     layer.close(index);//关闭弹出层
                     $("#coachform")[0].reset()//重置form
