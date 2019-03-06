@@ -46,5 +46,8 @@ public interface DamageService {
     public List<Damage> GetDamage(Damage damage);
 
 
+    public List<Equipment> SelectQname();
+
+
 
 }

@@ -5,6 +5,7 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.gym.ssm.base.PageBean;
 import com.gym.ssm.entity.Coach;
+import com.gym.ssm.entity.Equipment;
 import com.gym.ssm.mapper.CoachMapper;
 import com.gym.ssm.service.CoachSeriver;
 
@@ -54,6 +55,9 @@ public class CoachController {
         map.put("data", pageInfo.getList());
         return map;
     }
+
+
+
 
     /**
      * 前台跳转页面到客户页面

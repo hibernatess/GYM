@@ -40,33 +40,24 @@
 <div class="site-text" style="margin: 5%; display: none" id="box1"
      target="test123">
     <form class="layui-form layui-form-pane" onsubmit="return false" id="users">
-        <input type="hidden" class="layui-input" id="qid" name=qid
+        <input type="hidden" class="layui-input" id="qhid" name=qhid
         >
-        <div class="layui-form-item">
-            <label class="layui-form-label">器材名称</label>
-            <div class="layui-input-block">
-                <input type="text" class="layui-input" id="name" name=qname
-                >
-            </div>
-            <br>
-            <label class="layui-form-label">类型</label>
-            <div class="layui-input-block">
-                <input type="text" class="layui-input" id="sid" name=sid
-                >
-            </div>
-            <br>
-
-            <label class="layui-form-label"> 器材价格</label>
-            <div class="layui-input-block">
-                <input type="text" class="layui-input" id="qprice"
-                       name=qprice><br>
-            </div>
-            <label class="layui-form-label">数量</label>
-            <div class="layui-input-block">
-                <input type="text" class="layui-input" id="qsum"
-                       name=qsum ><br>
-            </div>
+        <label class="layui-form-label">器材类型</label>
+        <div class="layui-input-block">
+            <select class="layui-select" id="qid" name="qid">
+            </select>
         </div>
+        <br>
+            <label class="layui-form-label"> 赔偿价格</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input" id="qhprice"
+                       name=qhprice><br>
+            </div>
+            <label class="layui-form-label">损坏原因</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input" id="qhremark"
+                       name=qhremark ><br>
+            </div>
     </form>
 </div>
 

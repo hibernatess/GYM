@@ -1,6 +1,7 @@
 package com.gym.ssm.service.Impl;
 
 import com.gym.ssm.entity.Damage;
+import com.gym.ssm.entity.Equipment;
 import com.gym.ssm.mapper.DamageMapper;
 import com.gym.ssm.service.DamageService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,7 @@ public class DamageServiceImpl implements DamageService {
 
     @Override
     public int PostDamage(Damage damage) {
-        return DMapper.insert(damage);
+        return DMapper.PostDamage(damage);
     }
 
     @Override
@@ -31,11 +32,16 @@ public class DamageServiceImpl implements DamageService {
 
     @Override
     public int PutDamage(Damage damage) {
-        return DMapper.updateByPrimaryKey(damage);
+        return DMapper.PutDamage(damage);
     }
 
     @Override
     public List<Damage> GetDamage(Damage damage) {
         return DMapper.SelectDamage(damage);
+    }
+
+    @Override
+    public List<Equipment> SelectQname() {
+        return DMapper.SelectQname();
     }
 }

@@ -23,7 +23,7 @@ layui.use(['table', 'form'],
                     // width: 80,
                 }, {
                     field: 'qname',
-                    title: '器材名字',
+                    title: '器材名',
                     // width: 80,
                 },{
                     field: 'qhprice',
@@ -65,7 +65,7 @@ layui.use(['table', 'form'],
             }, add: function () { //添加
                 layer.open({
                     type: 1,
-                    title: '添加课程',
+                    title: '添加',
                     maxmin: true,
                     shadeClose: true, //点击遮罩关闭层
                     area: ['80%', '80%'],
@@ -73,12 +73,10 @@ layui.use(['table', 'form'],
                     btn: ['确定', '取消'],
                     yes: function (index, layero) {//确定执行函数
                         //执行添加方法
-                        $.getJSON("/equipment/add", {
-                            qname: $('#name').val(),//器材名字
-                            sid: $('#sid').val(),//类型
-                            qprice: $('#qprice').val(),//教练id
-                            qdamage: $('#qdamage').val(),//是否损坏
-                            qsum: $('#qsum').val(),//器材数量
+                        $.getJSON("/damage/add", {
+                            qid: $('#qid').val(),//器材名字
+                            qhprice: $('#qhprice').val(),//教练id
+                            qhremark: $('#qhremark').val(),//是否损坏
                         }, function (data) {
                             if (data) {
                                 layer.alert('添加成功', {icon: 1, title: '提示'}, function (i) {
@@ -124,22 +122,18 @@ layui.use(['table', 'form'],
                     content: $('#box1'),
                     btn: ['确定', '取消'],
                     success: function (layero, index) {//弹出后执行的函数
-                        $('#name').val(data.qname);//器材名称
-                        $('#sid').val(data.sid);//器材类型
-                        $('#qprice').val(data.qprice);//价格
-                        $('#qdamage').val(data.qdamage);//是否损坏
-                        $('#qsum').val(data.qsum);//数量
-                        $('#qid').val(data.qid)
+                        $('#qname').val(data.qname);//器材名称
+                        $('#qhprice').val(data.qhprice);//价格
+                        $('#qhremark').val(data.qhremark);//是否损坏
+                        $('#qhid').val(data.qhid)
                         layui.form.render();
                     }, yes: function (index, layero) {//确定回调函数
                         $.ajaxSettings.async = false;
-                        $.getJSON('/equipment/update', {
-                            qname: $('#name').val(),//课程名字
-                            sid: $('#sid').val(),//课程时间
-                            qprice: $('#qprice').val(),//教练id
-                            qdamage: $('#qdamage').val(),//课程价格
-                            qsum: $('#qsum').val(),//编号
-                            qid:$('#qid').val()
+                        $.getJSON('/damage/update', {
+                            qhprice: $('#qhprice').val(),//教练id
+                            qhremark: $('#qhremark').val(),//课程价格
+                            qname:$('#qid').val(),
+                            qhid: $('#qhid').val()//课程名字
                         }, function (data) {
                             if (data) {
                                 layer.alert('编辑成功', {icon: 1, title: '提示'}, function (i) {
@@ -165,8 +159,8 @@ layui.use(['table', 'form'],
                 })
             } else if (layEvent == 'del') {//删除
                 layer.confirm('确定删除吗???', {icon: 3, title: '提示'}, function (index) {
-                    $.getJSON("equipment/del", {
-                        qid: data.qid
+                    $.getJSON("damage/del", {
+                        qhid: data.qhid
                     }, function (data) {
                         layer.close(index);
                         table.reload('testReload', {
@@ -181,19 +175,23 @@ layui.use(['table', 'form'],
         });
     });
 
+
+
 /*
-下拉框教练加载
+下拉框加载
  */
 function coach() {
     $.ajaxSettings.async = false;
-    $.getJSON('equipment/Elist', {}, function (data) {
+    $.getJSON('damage/qname', {}, function (data) {
         var html = "";
         // 返回处理的方法
         $.each(data, function (index, item) {
-            html += "<option value=" + item.qid + ">" + item.qname
-                + "</option>";
+           // if(!data.contains(item)){
+                html += "<option value=" + item.qid + ">" + item.qname
+                    + "</option>";
+            //}
         });
-        $('#sid').html(html);
+        $('#qid').html(html);
     })
 }
 

@@ -12,9 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * @author小强
@@ -43,6 +41,17 @@ public class DamageController {
         map.put("data", pageInfo.getList());
         return map;
     }
+    @RequestMapping("/qname")
+    @ResponseBody
+    public  List<Equipment> SelectQname(){
+        List<Equipment> qlist=damageService.SelectQname();
+        Set  list=new HashSet();
+        for (Equipment equipment : qlist) {
+            list.add(equipment);
+        }
+        return qlist;
+    }
+
 
 
     /**

@@ -14,4 +14,10 @@ import java.util.List;
 public interface DamageMapper extends Mapper<Damage> {
     @SelectProvider(type = SqlDamage.class,method = "SelectDamage")
     public List<Damage> SelectDamage(Damage damage);
+    @SelectProvider(type = SqlDamage.class,method = "SelectQname")
+    public List<Equipment> SelectQname();
+    @SelectProvider(type = SqlDamage.class,method = "AddDamage")
+    public int PostDamage(Damage damage);
+    @SelectProvider(type = SqlDamage.class,method = "UpdateDamage")
+    public int PutDamage(Damage damage);
 }
