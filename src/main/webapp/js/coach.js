@@ -198,7 +198,7 @@ layui.use(['form','table','layer','laydate'] ,function () {
 })
 
 /**
- *查询教练的类别
+ *查询教练的类别1
  * @param str
  * @returns {*}
  */
