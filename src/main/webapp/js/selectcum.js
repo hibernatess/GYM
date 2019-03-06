@@ -22,7 +22,6 @@ layui.use(['form','table'], function(){
      if(obj.event === 'sectcoach'){
          // layer.alert(data.cprice)
             // layer.alert('编辑行：<br>'+ JSON.stringify(data))
-
          layer.open({
              title:'选择教练',
              area: ['700px', '400px'],
@@ -32,20 +31,9 @@ layui.use(['form','table'], function(){
          form.val('example', {
              "cname":data.cname,
              "cprice":'价格:'+data.cprice+'￥'
-
          });
-         $.ajaxSettings.async=false;
-         $.getJSON("/coach/getCoachs",{
-         },function (data) {
-             var html = "";
-             html+="<option value=\"\">请选择</option>"
-             // 返回处理的方法
-             $.each(data, function (index, item) {
-                 html += "<option value=" + item.jid + ">" + item.jname
-                     + "</option>";
-             });
-             $('#scoach').html(html);
-         })
+
+
      }
     });
 //搜素课程
@@ -70,5 +58,15 @@ layui.use(['form','table'], function(){
 
 });
 
-
-
+//获取全部的教练
+$.getJSON("/coach/getCoachs",{
+},function (data) {
+    var html = "";
+    html+="<option value=\"\">请选择</option>"
+    // 返回处理的方法
+    $.each(data, function (index, item) {
+        html += "<option value=" + item.jid + ">" + item.jname
+            + "</option>";
+    });
+    $('#scoach').html(html);
+});
