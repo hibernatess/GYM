@@ -9,9 +9,7 @@ layui.use('table', function(){
             ,{field:'cprice',title: '总消费金额',templet:function (d) {
                     return d.cprice+"￥";
                 },sort: true}
-            ,{fixed: 'right',title: '操作',templet:function (d) {
-                    return $('#d1').html();
-                },align: 'center'}
+            ,{fixed: 'right',title: '操作',toolbar:'#d1',align: 'center'}
         ]]
         ,id: 'testReload'
         ,page: true
@@ -34,9 +32,37 @@ layui.use('table', function(){
         }
     };
 
+    //table菜单
+    table.on('tool(demo)', function (obj) {
+        var data = obj.data;//获得当前行数据
+        if (obj.event === 'info') {
+            ta('详情',2,'/selectsta/info',['100%','100%'],'info');
+        }
+
+    })
+
     $('.demoTable .layui-btn').on('click', function(){
         var type = $(this).data('type');
         active[type] ? active[type].call(this) : '';
     });
 
 });
+
+
+
+function ta(teile,type,content,area,id) {
+    layer.open({
+        title: teile
+        ,type:type
+        ,content:content
+        ,area: area
+        ,offset:'auto'
+        ,id:id
+        ,maxmin:true
+        ,resize:false
+        , success: function(layero, index){
+            console.log(layero, index);
+        }
+    });
+
+}

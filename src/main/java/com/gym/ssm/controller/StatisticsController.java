@@ -22,9 +22,10 @@ import java.util.Map;
 public class StatisticsController {
     @Autowired
     private StatisticsBiz statisticsBiz;
+
     @RequestMapping("/selectsta")
     @ResponseBody
-    public Map<Object,Object> selectsta(HttpServletRequest request, Vip vip){
+    public Map<Object, Object> selectsta(HttpServletRequest request, Vip vip) {
         PageBean pageBea = new PageBean();
         pageBea.setPageBean(request);
         //前段传过来的page和limit的值  放入到pagehelper中
@@ -32,11 +33,18 @@ public class StatisticsController {
         Page<Object> objects = PageHelper.startPage(pageBea.getPage(), pageBea.getRows());
         List<Map> liststa = statisticsBiz.listcum(vip);
         PageInfo pageInfo = new PageInfo(liststa);
-        Map<Object,Object> map=new HashMap<>();
-        map.put("code",0);
+        Map<Object, Object> map = new HashMap<>();
+        map.put("code", 0);
         map.put("msg", "");
-        map.put("count",pageInfo.getTotal());
-        map.put("data",pageInfo.getList());
+        map.put("count", pageInfo.getTotal());
+        map.put("data", pageInfo.getList());
         return map;
+    }
+
+    @RequestMapping("/info")
+    public String getinfo() {
+
+
+        return "statinfo";
     }
 }
