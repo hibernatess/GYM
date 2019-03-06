@@ -41,7 +41,7 @@ public class SqlVip {
     public  String listvip(Vip vip){
         String sql=new SQL(){
             {
-                SELECT("d.svalues,hid,hname,hphone,hsex,hage,haddress,hregister,realname");
+                SELECT("d.svalues,hid,hname,hphone,hsex,hage,haddress,hregister,realname,hlapsed");
                 FROM("vip v ");
                 INNER_JOIN("dictionaries d on v.sid=d.sid");
                 if(!StringUtils.isEmpty(vip.getHname())){

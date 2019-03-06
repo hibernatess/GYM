@@ -12,6 +12,16 @@ layui.use('table', function(){
             ,{field:'hage',  title: '年龄'}
             ,{field:'haddress',  title: '地址'}
             ,{field:'hregister',  title: '注册时间'}
+            ,{field:'hlapsed',  title: '状态',  templet:function (d) {
+                    if(d.hlapsed==0){
+                        return "未流失";
+
+                    } if(d.hlapsed==1){
+                        return "即将流失";
+                    }else{
+                        return "流失";
+                    }
+                }}
             ,{fixed: 'right',title: '操作',toolbar: '#d1',align: 'center'}
         ]]
         ,id:'testReload'
