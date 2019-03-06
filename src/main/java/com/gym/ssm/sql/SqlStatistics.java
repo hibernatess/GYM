@@ -22,6 +22,7 @@ public class SqlStatistics {
                 GROUP_BY(" v.hid ");
             }
         }.toString();
+//        System.out.println(v);
     return v;
     }
 }

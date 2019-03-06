@@ -28,6 +28,7 @@ public class StatisticsController {
         PageBean pageBea = new PageBean();
         pageBea.setPageBean(request);
         //前段传过来的page和limit的值  放入到pagehelper中
+        //System.out.println(vip.getHname());
         Page<Object> objects = PageHelper.startPage(pageBea.getPage(), pageBea.getRows());
         List<Map> liststa = statisticsBiz.listcum(vip);
         PageInfo pageInfo = new PageInfo(liststa);

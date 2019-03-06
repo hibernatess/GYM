@@ -28,7 +28,7 @@ layui.use('table', function(){
                     curr: 1 //重新从第 1 页开始
                 }
                 ,where: {
-                    cprice:demoReload.val()
+                    hname:demoReload.val()
                 }
             });
         }

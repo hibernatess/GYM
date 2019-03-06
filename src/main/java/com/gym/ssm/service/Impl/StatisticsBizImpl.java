@@ -15,6 +15,7 @@ public class StatisticsBizImpl implements StatisticsBiz {
 
     @Override
     public List<Map> listcum(Vip vip) {
+
         return statisticsMapper.liststa(vip);
     }
 }
