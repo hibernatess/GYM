@@ -39,4 +39,18 @@ public interface VipMapper extends Mapper<Vip> {
      */
     @SelectProvider(type = SqlVip.class,method = "listcum")
     public List<Map> listcum(Vip vip);
+
+
+    /**
+     * 会员信息
+     */
+    @SelectProvider(type = SqlVip.class,method = "listvip")
+    public  List<Map> listvip(Vip vip);
+
+    /**
+     * 注销会员
+     * @param vip
+     * @return
+     */
+    public int delvip(Vip vip);
 }

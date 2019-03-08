@@ -68,6 +68,15 @@ public class VipBizimpl implements VipBiz {
         return VipMapper.listcum(Vip);
     }
 
+    @Override
+    public List<Map> listvip(Vip vip) {
+        return VipMapper.listvip(vip);
+    }
+
+    @Override
+    public int delvip(Vip vip) {
+        return VipMapper.deleteByPrimaryKey(vip);
+    }
 
 
 }
