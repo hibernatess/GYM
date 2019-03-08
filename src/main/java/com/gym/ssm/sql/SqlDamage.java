@@ -33,7 +33,6 @@ public class SqlDamage {
     public String AddDamage(Damage d) {
         StringBuffer sb = new StringBuffer();
         sb.append("INSERT INTO damage ( qhid,qid,qhprice,qhremark ) VALUES( ?,?,?,? ) ");
-         UpdateDamage(d);
         return sb.toString();
     }
 
