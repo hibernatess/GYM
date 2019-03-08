@@ -112,4 +112,35 @@ public class VipController {
         map.put("data",pageInfo.getList());
         return map;
     }
+
+
+    /**
+     * 会员信息
+     * @param request
+     * @param Vip
+     * @return
+     */
+    @RequestMapping("/listvip")
+    @ResponseBody
+    public Map<Object,Object> listvip(HttpServletRequest request,Vip Vip){
+        PageBean pageBea = new PageBean();
+        pageBea.setPageBean(request);
+        //前段传过来的page和limit的值  放入到pagehelper中
+        Page<Object> objects = PageHelper.startPage(pageBea.getPage(), pageBea.getRows());
+        List<Map> listvip = VipBiz.listvip(Vip);
+        PageInfo pageInfo = new PageInfo(listvip);
+        Map<Object,Object> map=new HashMap<>();
+        map.put("code",0);
+        map.put("msg", "");
+        map.put("count",pageInfo.getTotal());
+        map.put("data",pageInfo.getList());
+        return map;
+    }
+    @RequestMapping("/delvip")
+    @ResponseBody
+    public String delvip(Vip vip){
+        System.out.println("delete");
+        VipBiz.delvip(vip);
+        return "delseccuess";
+    }
 }
