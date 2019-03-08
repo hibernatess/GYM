@@ -52,16 +52,14 @@ li{
                 <%
                     if (session.getAttribute("login") == null) {
                         String site = new String("login.jsp");
-                        response.setStatus(response.SC_MOVED_TEMPORARILY);
                         response.setHeader("Location", site);
-
                     }
                 %>
             </li>
             <li class="layui-nav-item">
                 <a href="javascript:lockScreen();" style="font-size: 28px"><i class="fa fa-lock" ></i>锁屏</a>
             </li>
-            <li class="layui-nav-item"><a href="/GYM03/out" style="font-size: 28px">退出系统</a></li>
+            <li class="layui-nav-item"><a href="/out.jsp" style="font-size: 28px">退出系统</a></li>
         </ul>
     </div>
 
@@ -81,7 +79,7 @@ li{
             </ul>
             <div class="layui-tab-content">
                  <div class="layui-tab-item layui-show">
-                  <img src="jpg/003GB4c-11.jpg" width="95%" height="80%">
+                  <img src="jpg/324305.jpg" width="95%" height="80%">
                  </div>
 
             </div>
