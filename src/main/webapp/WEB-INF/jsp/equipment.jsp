@@ -25,7 +25,6 @@
         </div>
         <button class="layui-btn" data-type="reload">查询</button>
         <button class="layui-btn layui-btn-danger" data-type="add">新建</button>
-        <button class="layui-btn layui-btn-danger" data-type="damage">损坏</button>
     </div>
 </div>
 <!--显示数据的表格-->
@@ -91,28 +90,6 @@
     </form>
 </div>
 
-<!--弹出层-->
-<div class="site-text" style="margin: 5%; display: none" id="box2"
-     target="test123">
-    <form class="layui-form layui-form-pane" onsubmit="return false" id="users2">
-        <label class="layui-form-label">器材类型</label>
-        <div class="layui-input-block">
-            <select class="layui-select" id="did" name="did">
-            </select>
-        </div>
-        <br>
-        <label class="layui-form-label"> 赔偿价格</label>
-        <div class="layui-input-block">
-            <input type="text" class="layui-input" id="qhprice"
-                   name=qhprice><br>
-        </div>
-        <label class="layui-form-label">损坏原因</label>
-        <div class="layui-input-block">
-            <input type="text" class="layui-input" id="qhremark"
-                   name=qhremark ><br>
-        </div>
-    </form>
-</div>
 
 
 

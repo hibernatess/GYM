@@ -39,17 +39,12 @@ layui.use(['table', 'form'],
                     toolbar: '#barDemo'
                 }]],
             id: 'testReload',
-
         });
         table.on('checkbox(user)', function (obj) {
             console.log(obj)
         });
 
 
-        $('.layui-form .layui-btn').on('click', function () {
-            var type = $(this).data('type');
-            active[type] ? active[type].call(this) : '';
-        });
 
         //table菜单
         table.on('tool(user)', function (obj) {
@@ -74,4 +69,70 @@ layui.use(['table', 'form'],
         });
     });
 
+var $ = layui.$, active = {
+    damage: function () { //添加
+        layer.open({
+            type: 1,
+            title: '损坏',
+            maxmin: true,
+            shadeClose: true, //点击遮罩关闭层
+            area: ['80%', '80%'],
+            content: $('#box2'),
+            btn: ['确定', '取消'],
+            yes: function (index, layero) {//确定执行函数
+                //执行添加方法
+                $.getJSON("/damage/add", {
+                    qid: $('#did').val(),//器材名字
+                    qhprice: $('#qhprice').val(),//教练id
+                    qhremark: $('#qhremark').val(),//是否损坏
+                }, function (data) {
+                    if (data) {
+                        layer.alert('OK', {icon: 1, title: '提示'}, function (i) {
+                            layer.close(i);
+                            layer.close(index);//关闭弹出层
+                            $("#users2")[0].reset()//重置form
+                        })
+                        table.reload('testReloads', {//重载表格
+                            page: {
+                                curr: 1
+                                // 重新从第 1 页开始
+                            }
+                        })
+                    } else {
+                        layer.msg('失败')
+                    }
+                })
 
+            }, cancel: function (index, layero) {
+                $("#users2")[0].reset()//重置form
+                layer.close(index)
+            }
+        });
+    }
+}
+
+
+$('.layui-form .layui-btn').on('click', function () {
+    var type = $(this).data('type');
+    active[type] ? active[type].call(this) : '';
+});
+
+/*
+下拉框加载
+ */
+function coach() {
+    $.ajaxSettings.async = false;
+    $.getJSON('damage/qname', {}, function (data) {
+        var html = "";
+        // 返回处理的方法
+        $.each(data, function (index, item) {
+            html += "<option value=" + item.qid + ">" + item.qname
+                + "</option>";
+        });
+        $('#did').html(html);
+    })
+}
+
+$(function () {
+    coach();
+})
