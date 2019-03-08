@@ -68,11 +68,11 @@
             <label class="layui-form-label"> 是否损坏</label>
             <div class="layui-input-block">
                 <select class="layui-select" id="qdamage" name="qdamage">
-                    <option value="1">
-                        是
-                    </option>
                     <option value="0">
                         否
+                    </option>
+                    <option value="1">
+                        是
                     </option>
                 </select>
             </div>
@@ -95,8 +95,6 @@
 <div class="site-text" style="margin: 5%; display: none" id="box2"
      target="test123">
     <form class="layui-form layui-form-pane" onsubmit="return false" id="users2">
-        <%--<input type="hidden" class="layui-input" id="qhid" name=qhid--%>
-        <%-->--%>
         <label class="layui-form-label">器材类型</label>
         <div class="layui-input-block">
             <select class="layui-select" id="did" name="did">

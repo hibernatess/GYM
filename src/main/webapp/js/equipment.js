@@ -78,7 +78,7 @@ layui.use(['table', 'form'],
             }, add: function () { //添加
                 layer.open({
                     type: 1,
-                    title: '添加课程',
+                    title: '添加器材',
                     maxmin: true,
                     shadeClose: true, //点击遮罩关闭层
                     area: ['80%', '80%'],
