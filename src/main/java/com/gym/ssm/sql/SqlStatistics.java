@@ -25,4 +25,40 @@ public class SqlStatistics {
 //        System.out.println(v);
     return v;
     }
+
+
+    /**
+     * 客户详情的sql
+     * @param vip
+     * @return
+     */
+    public String selectInfoStatistics(Vip vip){
+        String sql=new SQL(){
+            {
+                SELECT ("cm.cname,ch.jname,cm.cattend,cm.cprice");
+                FROM("vipcum vm,vip v,curriculum cm,coach ch");
+                WHERE ("v.hid=vm.hid and vm.cid=cm.cid and ch.jid=vm.jid and v.hname='"+vip.getHname()+"'");
+            }
+        }.toString();
+        return sql;
+    }
+
+
+    /**
+     * 统计图的sql
+     * @param vip
+     * @return
+     */
+    public String selectGraph(Vip vip){
+        String sql=new SQL(){
+            {
+                SELECT ("c.cname,count(v.hid)'sum',sum(c.cprice)'cprice'");
+                FROM("vip v,curriculum c,vipcum vc");
+                WHERE ("v.hid=vc.hid and c.cid=vc.cid");
+                GROUP_BY("c.cname");
+            }
+        }.toString();
+        return sql;
+    }
+
 }

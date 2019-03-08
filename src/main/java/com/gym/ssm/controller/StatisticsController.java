@@ -41,10 +41,64 @@ public class StatisticsController {
         return map;
     }
 
-    @RequestMapping("/info")
-    public String getinfo() {
 
-
-        return "statinfo";
+    /**
+     * @param request
+     * @param vip
+     * @return
+     *      用户详情的详情查询
+     */
+    @RequestMapping("/selectinfo")
+    @ResponseBody
+    public Map<Object, Object> selectinfo(HttpServletRequest request, Vip vip) {
+        PageBean pageBea = new PageBean();
+        pageBea.setPageBean(request);
+        //前段传过来的page和limit的值  放入到pagehelper中
+        Page<Object> objects = PageHelper.startPage(pageBea.getPage(), pageBea.getRows());
+        List<Map> listInfo = statisticsBiz.listStaInfo(vip);
+        PageInfo pageInfo = new PageInfo(listInfo);
+        Map<Object, Object> map = new HashMap<>();
+        map.put("code", 0);
+        map.put("msg", "");
+        map.put("count", pageInfo.getTotal());
+        map.put("data", pageInfo.getList());
+        return map;
     }
+
+    @RequestMapping("/info")
+    public  String   getInfo(){
+
+        return  "statinfo";
+    }
+
+
+    /**
+     * 统计图
+     * @return
+     */
+    @RequestMapping("/selectGraph")
+    @ResponseBody
+    public List selectGraph() {
+        List<Map<String,Object>> listGraph = statisticsBiz.listGraph();
+//        for (Map<String, Object> map : listGraph) {
+//            System.out.println(map.get("cname"));
+//            System.out.println();
+//        }
+//        Object o = listGraph.get(1);
+
+//        System.out.println(listGraph);
+//        for (Object o : listGraph) {
+//
+//        }
+//        for (Object o : listGraph) {
+//            System.out.println(o);
+//        }
+
+
+
+
+        return listGraph;
+    }
+
+
 }

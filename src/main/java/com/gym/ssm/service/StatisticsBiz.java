@@ -7,4 +7,8 @@ import java.util.Map;
 
 public interface StatisticsBiz {
     public List<Map> listcum(Vip vip);
+
+    public List<Map> listStaInfo(Vip vip);
+
+    public List listGraph();
 }

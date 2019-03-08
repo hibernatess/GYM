@@ -15,7 +15,18 @@ public class StatisticsBizImpl implements StatisticsBiz {
 
     @Override
     public List<Map> listcum(Vip vip) {
-
         return statisticsMapper.liststa(vip);
     }
+
+    @Override
+    public List<Map> listStaInfo(Vip vip) {
+        return statisticsMapper.listStaInfo(vip);
+    }
+
+    @Override
+    public List<Map<String,Object>> listGraph() {
+        return statisticsMapper.listGraph();
+    }
+
+
 }

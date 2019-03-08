@@ -14,4 +14,10 @@ import java.util.Map;
 public interface StatisticsMapper {
     @SelectProvider(type = SqlStatistics.class,method = "selectStatistics")
     public List<Map> liststa(Vip vip);
+
+    @SelectProvider(type = SqlStatistics.class,method = "selectInfoStatistics")
+    public List<Map> listStaInfo(Vip vip);
+
+    @SelectProvider(type = SqlStatistics.class,method = "selectGraph")
+    public List<Map<String,Object>> listGraph();
 }
