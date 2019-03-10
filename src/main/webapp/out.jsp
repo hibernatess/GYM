@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.gym.ssm.entity.peng.Login" %><%--
   Created by IntelliJ IDEA.
   User: lenovo
   Date: 2019/3/6
@@ -12,10 +12,10 @@
 </head>
 <body>
 <%
-    HttpSession Session = request.getSession();
-    Session.invalidate();
-    response.sendRedirect("login.jsp");
+    session.invalidate();
+    response.sendRedirect("index.jsp");
 %>
-<%--v--%>
+
+
 </body>
 </html>

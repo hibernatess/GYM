@@ -24,20 +24,23 @@
             position: fixed;
         }
     </style>
-<style>
-    tr{
-        font-family: 华文行楷;
-    }
-    span {
-        font-family: 华文行楷;
-    }
-li{
-    font-size: 28px;
-}
-</style>
+    <style>
+        tr {
+            font-family: 华文行楷;
+        }
+
+        span {
+            font-family: 华文行楷;
+        }
+
+        li {
+            font-size: 28px;
+        }
+    </style>
     <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
 </head>
 <body>
+
 <span id="app">
 
 <div class="layui-layout layui-layout-admin ">
@@ -46,27 +49,27 @@ li{
         <!-- 头部区域（可配合layui已有的水平导航） -->
         <ul class="layui-nav layui-layout-right">
             <li class="layui-nav-item">
-                <a style="font-size: 28px">${login.name}</a>
+                <a style="font-size: 28px" id="name">${login.name}</a>
                 <input type="hidden" id="aid" value="${login.aid}">
                 <input type="hidden" id="memu" value="${login.mid}">
                 <%
                     if (session.getAttribute("login") == null) {
                         String site = new String("login.jsp");
-                        response.setHeader("Location", site);
+                        response.sendRedirect(site);
                     }
                 %>
             </li>
-            <li class="layui-nav-item">
-                <a href="javascript:lockScreen();" style="font-size: 28px"><i class="fa fa-lock" ></i>锁屏</a>
-            </li>
+            <%--<li class="layui-nav-item">--%>
+                <%--<a href="javascript:lockScreen();" style="font-size: 28px"><i class="fa fa-lock"></i>锁屏</a>--%>
+            <%--</li>--%>
             <li class="layui-nav-item"><a href="/out.jsp" style="font-size: 28px">退出系统</a></li>
         </ul>
     </div>
 
     <!-- 左边tree页面 -->
     <div class="layui-side layui-bg-black">
-        <div class="layui-side-scroll "  >
-            <div id="sidemenubar" lay-filter="test" ></div>
+        <div class="layui-side-scroll ">
+            <div id="sidemenubar" lay-filter="test"></div>
         </div>
     </div>
 
@@ -79,7 +82,7 @@ li{
             </ul>
             <div class="layui-tab-content">
                  <div class="layui-tab-item layui-show">
-                  <img src="jpg/324305.jpg" width="95%" height="80%">
+                  <img src="jpg/324305.jpg" width="95%" height="95%">
                  </div>
 
             </div>
@@ -96,8 +99,6 @@ li{
     $(function () {
         getTreeNode();
     });
-
-
 
 
 </script>

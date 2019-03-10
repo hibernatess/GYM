@@ -9,16 +9,46 @@
 <html>
 <%--3.4--%>
 <head>
+
     <title>Title</title>
     <link rel="stylesheet" href="layui/css/layui.css" media="all"/>
     <link rel="stylesheet" href="css/login.css" media="all"/>
     <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
 </head>
-<body>
+<style type="text/css">
+    *{
+        margin: 0px;
+        padding: 0px;
+    }
+    video{
+        /*position: fixed;*/
+        /*right: 0px;*/
+        /*bottom: 0px;*/
+        /*min-width: 100%;*/
+        /*min-height: 100%;*/
+        /*height: auto;*/
+        /*width: auto;*/
+        /*加滤镜*/
+        /*-webkit-filter: grayscale(100%);*/
 
+
+
+        /*filter:grayscale(100%);*/
+    }
+    source{
+        /*min-width: 100%;*/
+        /*min-height: 100%;*/
+        /*height: auto;*/
+        /*width: auto;*/
+    }
+</style>
+<body>
+<video class="video-player" preload="auto" autoplay="autoplay" loop="loop" data-height="768" data-width="1366" height="768" width="1366">
+    <source src="mp4/login.mp4" type="video/mp4">
+</video>
 <div class="video_mask"></div>
 <div class="login">
-    <h1>管理员登录</h1>
+    <h1>登录</h1>
     <form class="layui-form">
         <div class="layui-form-item">
             <input class="layui-input" name="username" placeholder="用户名" value="" lay-verify="required"
