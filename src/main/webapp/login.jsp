@@ -43,7 +43,7 @@
     }
 </style>
 <body>
-<video class="video-player" preload="auto" autoplay="autoplay" loop="loop" data-height="768" data-width="1366" height="768" width="1366">
+<video class="video-player" preload="auto" autoplay="autoplay" loop="loop" data-height="980" data-width="1024" width="auto" height="auto">
     <source src="mp4/login.mp4" type="video/mp4">
 </video>
 <div class="video_mask"></div>

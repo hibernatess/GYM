@@ -1,12 +1,9 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: lenovo
-  Date: 2019/3/1
-  Time: 18:19
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+         pageEncoding="utf-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <head>
     <title>选课列表</title>
     <link rel="stylesheet" href="../../layui/css/layui.css">
@@ -25,6 +22,16 @@
         }
         div{
             font-family: 华文行楷;
+        }
+        .new-btn-login {
+            background-color: #02aaf1;
+            color: #FFFFFF;
+            font-weight: bold;
+            border: none;
+            width: 200px;
+            height: 30px;
+            border-radius: 5px;
+            font-size: 16px;
         }
     </style>
 
@@ -48,34 +55,55 @@
 
 
 <div style="width: 600px;height: 300px;display: none " id="secoach" >
-    <form class="layui-form" action="" lay-filter="example">
+    <form class="layui-form" action="/vip/pay" lay-filter="example" method="post">
+<input type="text" name="cid" id="cid">
+
+        <div class="layui-form-item">
+            <label class="layui-form-label"><h2>订单号</h2></label>
+            <div class="layui-input-block">
+                <h2><input  readonly style="color: #e60000;border: 0;" class="layui-input" id="WIDout_trade_no" name="WIDout_trade_no"></h2>
+            </div>
+        </div>
+
+
 
         <div class="layui-form-item">
 
             <div class="layui-inline">
-            <label class="layui-form-label"><h3>课&nbsp;程&nbsp;名</h3></label>
-            <div class="layui-input-inline">
-                <input   name="cname" readonly  class="layui-input">
-            </div>
+            <label class="layui-form-label"><h2>订单名</h2></label>
+                <div class="layui-input-inline">
+                <input   name="WIDsubject" id="WIDsubject" readonly  class="layui-input">
+                </div>
             </div>
 
             <div class="layui-inline">
-            <label class="layui-form-label"><h3>选&nbsp;择&nbsp;教&nbsp;练&nbsp;</h3></label>
-            <div class="layui-input-block">
+            <label class="layui-form-label"><h2>选教练</h2></label>
+                <div class="layui-input-inline">
             <h3><select lay-verify="required"  id="scoach" name="scoach"></select></h3>
-            </div>
+                </div>
             </div>
 
         </div>
 
-        <div style="margin-left: 30%;width: 300px;height: 200px;text-align: center;">
-            <img src="../../img/timg.jpg"  style="width: 200px;height: 200px">
-            <h1><input type="text" readonly style="width: 150px;color: #e60000;border: 0;margin-top: 6%;margin-left: 25%" class="layui-input" name="cprice"></h1>
+        <div class="layui-form-item">
+            <label class="layui-form-label"><h2>价格:</h2></label>
+            <div class="layui-input-block">
+        <h2><input  readonly style="color: #e60000;border: 0;" class="layui-input" id="WIDtotal_amount" name="WIDtotal_amount"></h2>
+            </div>
+            </div>
+
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+        <button class="layui-btn" lay-submit="" lay-filter="demo1">去付款</button>
+            </div>
         </div>
     </form>
 
 
 </div>
+
+
+
 
 </body>
 

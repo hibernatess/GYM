@@ -53,4 +53,12 @@ public interface VipMapper extends Mapper<Vip> {
      * @return
      */
     public int delvip(Vip vip);
+
+    /***
+     * 选课
+     * @param
+     * @return
+     */
+    @SelectProvider(type = SqlVip.class,method = "addcum")
+    public int addcum(Integer cid,Integer hid,Integer jid);
 }

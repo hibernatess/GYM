@@ -1,7 +1,6 @@
 package com.gym.ssm.sql;
 
 import com.gym.ssm.entity.Vip;
-import net.sf.jsqlparser.statement.select.FromItem;
 import org.apache.ibatis.jdbc.SQL;
 import org.springframework.util.StringUtils;
 
@@ -50,5 +49,23 @@ public class SqlVip {
             }
         }.toString();
         return sql;
+
+
+    }
+
+
+    public String addcum(Integer cid,Integer hid,Integer jid){
+        String sql=new SQL(){
+            {
+                INSERT_INTO("vipcum");
+                VALUES("cid",""+cid+"");
+                VALUES("hid",""+hid+"");
+                VALUES("jid",""+jid+"");
+
+            }
+        }.toString();
+        return sql;
     }
 }
+
+

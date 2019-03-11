@@ -49,4 +49,11 @@ public interface VipBiz {
      * @return
      */
     public int delvip(Vip vip);
+
+    /**
+     * 选课付款
+     * @param
+     * @return
+     */
+    public int addcum(Integer cid,Integer hid,Integer jid);
 }

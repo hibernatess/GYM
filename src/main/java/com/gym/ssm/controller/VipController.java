@@ -1,8 +1,13 @@
 package com.gym.ssm.controller;
 
+import com.alipay.api.AlipayApiException;
+import com.alipay.api.AlipayClient;
+import com.alipay.api.DefaultAlipayClient;
+import com.alipay.api.request.AlipayTradePagePayRequest;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.gym.ssm.base.AlipayConfig;
 import com.gym.ssm.base.PageBean;
 import com.gym.ssm.entity.Vip;
 import com.gym.ssm.entity.peng.Login;
@@ -13,8 +18,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
@@ -142,5 +149,58 @@ public class VipController {
         System.out.println("delete");
         VipBiz.delvip(vip);
         return "delseccuess";
+    }
+
+
+
+
+
+
+
+//沙箱支付
+    @RequestMapping("/pay")
+    public  void  pay(HttpServletRequest request, HttpServletResponse response)throws Exception{
+        AlipayClient alipayClient = new DefaultAlipayClient(AlipayConfig.gatewayUrl, AlipayConfig.app_id, AlipayConfig.merchant_private_key, "json", AlipayConfig.charset, AlipayConfig.alipay_public_key, AlipayConfig.sign_type);
+        //cid
+        Integer cid=Integer.parseInt(request.getParameter("cid"));
+        //hid
+        Login login =(Login) request.getSession().getAttribute("login");
+        Integer hid=login.getAid();
+        //jid
+        Integer jid=Integer.parseInt(request.getParameter("scoach"));
+        //商户订单号，商户网站订单系统中唯一订单号，必填
+        String out_trade_no = new String(request.getParameter("WIDout_trade_no").getBytes("ISO-8859-1"),"UTF-8");
+        //付款金额，必填
+        String total_amount = new String(request.getParameter("WIDtotal_amount").getBytes("ISO-8859-1"),"UTF-8");
+        //订单名称，必填
+        String subject =request.getParameter("WIDsubject");
+        //设置请求参数
+        AlipayTradePagePayRequest alipayRequest = new AlipayTradePagePayRequest();
+        alipayRequest.setReturnUrl("/vip/success");
+        alipayRequest.setBizContent("{\"out_trade_no\":\""+ out_trade_no +"\","
+                + "\"total_amount\":\""+ total_amount +"\","
+                + "\"subject\":\""+ subject +"\","
+                + "\"product_code\":\"FAST_INSTANT_TRADE_PAY\"}");
+
+        String form="";
+        try {
+            form = alipayClient.pageExecute(alipayRequest).getBody(); //调用SDK生成表单
+        } catch (AlipayApiException e) {
+            e.printStackTrace();
+        }
+        response.setContentType("text/html;charset=utf-8");
+        response.getWriter().println(form);//直接将完整的表单html输出到页面
+        response.getWriter().close();
+        VipBiz.addcum(cid,hid,jid);
+
+    }
+
+    @RequestMapping("/success")
+    public ModelAndView success(String out_trade_no, Double total_amount){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("success");
+        modelAndView.addObject("money",total_amount);
+        modelAndView.addObject("no",out_trade_no);
+        return modelAndView;
     }
 }

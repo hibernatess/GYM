@@ -78,5 +78,10 @@ public class VipBizimpl implements VipBiz {
         return VipMapper.deleteByPrimaryKey(vip);
     }
 
+    @Override
+    public int addcum(Integer cid, Integer hid, Integer jid) {
+        return VipMapper.addcum(cid,hid,jid);
+    }
+
 
 }
